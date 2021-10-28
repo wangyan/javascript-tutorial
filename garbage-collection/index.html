@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>垃圾回收 | 现代 JavaScript 教程</title>
+    <meta name="generator" content="VuePress 1.8.2">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="icon" type="image/png" sizes="36x36" href="/icons/icon-ldpi-36x36.png">
+    <link rel="apple-touch-icon" type="image/png" sizes="36x36" href="/icons/icon-ldpi-36x36.png">
+    <link rel="icon" sizes="48x48" href="/icons/icon-mdpi-48x48.png">
+    <link rel="apple-touch-icon" sizes="48x48" href="/icons/icon-mdpi-48x48.png">
+    <link rel="icon" sizes="72x72" href="/icons/icon-hdpi-72x72.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/icons/icon-hdpi-72x72.png">
+    <link rel="icon" sizes="96x96" href="/icons/icon-xhdpi-96x96.png">
+    <link rel="apple-touch-icon" sizes="96x96" href="/icons/icon-xhdpi-96x96.png">
+    <link rel="icon" sizes="144x144" href="/icons/icon-xxhdpi-144x144.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/icons/icon-xxhdpi-144x144.png">
+    <link rel="icon" sizes="192x192" href="/icons/icon-xxxhdpi-192x192.png">
+    <link rel="apple-touch-icon" sizes="192x192" href="/icons/icon-xxxhdpi-192x192.png">
+    <link rel="icon" sizes="512x512" href="/icons/icon-72dpi-512x512.png">
+    <link rel="apple-touch-icon" sizes="512x512" href="/icons/icon-72dpi-512x512.png">
+    <link rel="icon" sizes="1024x1024" href="/icons/icon-144dpi-1024x1024.png">
+    <link rel="apple-touch-icon" sizes="1024x1024" href="/icons/icon-144dpi-1024x1024.png">
+    <meta name="description" content="以最新的 JavaScript 标准为基准。通过简单但足够详细的内容，为你讲解从基础到高阶的 JavaScript 相关知识。">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="application-name" content="现代 JavaScript 教程">
+    <meta name="apple-mobile-web-app-title" content="现代 JavaScript 教程">
+    <meta name="theme-color" content="#fff">
+    <meta name="msapplication-navbutton-color" content="#fff">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="msapplication-starturl" content="index.html">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <link rel="preload" href="/assets/css/0.styles.d0e1634f.css" as="style"><link rel="preload" href="/assets/js/app.83f5da50.js" as="script"><link rel="preload" href="/assets/js/2.741d139e.js" as="script"><link rel="preload" href="/assets/js/3.63868dc5.js" as="script"><link rel="preload" href="/assets/js/20.2b87c008.js" as="script"><link rel="prefetch" href="/assets/js/10.9650b6ca.js"><link rel="prefetch" href="/assets/js/11.1c6d6528.js"><link rel="prefetch" href="/assets/js/12.43731225.js"><link rel="prefetch" href="/assets/js/13.59881730.js"><link rel="prefetch" href="/assets/js/14.341aa408.js"><link rel="prefetch" href="/assets/js/15.37f20174.js"><link rel="prefetch" href="/assets/js/16.e65623b0.js"><link rel="prefetch" href="/assets/js/17.525277bd.js"><link rel="prefetch" href="/assets/js/18.7e5fe6b0.js"><link rel="prefetch" href="/assets/js/19.8a423a32.js"><link rel="prefetch" href="/assets/js/21.35925ffe.js"><link rel="prefetch" href="/assets/js/22.7220c015.js"><link rel="prefetch" href="/assets/js/23.f91fed20.js"><link rel="prefetch" href="/assets/js/24.f55fca3f.js"><link rel="prefetch" href="/assets/js/25.ab318aa9.js"><link rel="prefetch" href="/assets/js/26.2515724b.js"><link rel="prefetch" href="/assets/js/27.2d48422d.js"><link rel="prefetch" href="/assets/js/28.bf73e5a5.js"><link rel="prefetch" href="/assets/js/29.7add7094.js"><link rel="prefetch" href="/assets/js/30.f16b582f.js"><link rel="prefetch" href="/assets/js/31.1cbe3b01.js"><link rel="prefetch" href="/assets/js/32.49ad9f58.js"><link rel="prefetch" href="/assets/js/33.831966e9.js"><link rel="prefetch" href="/assets/js/34.c3cecff7.js"><link rel="prefetch" href="/assets/js/35.d60a17a1.js"><link rel="prefetch" href="/assets/js/36.6a6802c9.js"><link rel="prefetch" href="/assets/js/37.aaf3f6a6.js"><link rel="prefetch" href="/assets/js/38.11598708.js"><link rel="prefetch" href="/assets/js/39.8a3cbf96.js"><link rel="prefetch" href="/assets/js/4.471c379b.js"><link rel="prefetch" href="/assets/js/40.146fd1a9.js"><link rel="prefetch" href="/assets/js/41.2caf8da3.js"><link rel="prefetch" href="/assets/js/42.583d4934.js"><link rel="prefetch" href="/assets/js/43.39c6c351.js"><link rel="prefetch" href="/assets/js/44.fdd6dece.js"><link rel="prefetch" href="/assets/js/45.3e97a42c.js"><link rel="prefetch" href="/assets/js/46.8da318e6.js"><link rel="prefetch" href="/assets/js/47.e8cce718.js"><link rel="prefetch" href="/assets/js/48.e29e5227.js"><link rel="prefetch" href="/assets/js/49.a53d3ef6.js"><link rel="prefetch" href="/assets/js/5.e81fb6e4.js"><link rel="prefetch" href="/assets/js/50.ff4d9108.js"><link rel="prefetch" href="/assets/js/51.87e52449.js"><link rel="prefetch" href="/assets/js/52.6b5fe7f7.js"><link rel="prefetch" href="/assets/js/53.f3afeef2.js"><link rel="prefetch" href="/assets/js/54.5569b62a.js"><link rel="prefetch" href="/assets/js/55.2e2222fd.js"><link rel="prefetch" href="/assets/js/56.2680f090.js"><link rel="prefetch" href="/assets/js/57.5df03027.js"><link rel="prefetch" href="/assets/js/58.fd022198.js"><link rel="prefetch" href="/assets/js/59.cdac29d4.js"><link rel="prefetch" href="/assets/js/6.49d91683.js"><link rel="prefetch" href="/assets/js/60.8d56ce67.js"><link rel="prefetch" href="/assets/js/61.025320dd.js"><link rel="prefetch" href="/assets/js/62.6d59a313.js"><link rel="prefetch" href="/assets/js/63.3f382f49.js"><link rel="prefetch" href="/assets/js/64.031ae36b.js"><link rel="prefetch" href="/assets/js/65.65cab595.js"><link rel="prefetch" href="/assets/js/66.c110100c.js"><link rel="prefetch" href="/assets/js/67.cdcedc8b.js"><link rel="prefetch" href="/assets/js/7.84920acb.js"><link rel="prefetch" href="/assets/js/8.898da7ef.js"><link rel="prefetch" href="/assets/js/9.06ec3991.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.d0e1634f.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">现代 JavaScript 教程</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link">
+  首页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="基础" class="dropdown-title"><span class="title">基础</span> <span class="arrow down"></span></button> <button type="button" aria-label="基础" class="mobile-dropdown-title"><span class="title">基础</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/getting-started/" class="nav-link">
+  An introduction
+</a></li><li class="dropdown-item"><!----> <a href="/first-steps/" class="nav-link">
+  JavaScript Fundamentals
+</a></li><li class="dropdown-item"><!----> <a href="/code-quality/" class="nav-link">
+  Code quality
+</a></li><li class="dropdown-item"><!----> <a href="/object-basics/" class="nav-link">
+  Objects: the basics
+</a></li><li class="dropdown-item"><!----> <a href="/data-types/" class="nav-link">
+  Data types
+</a></li><li class="dropdown-item"><!----> <a href="/advanced-functions/" class="nav-link">
+  Advanced working with functions
+</a></li><li class="dropdown-item"><!----> <a href="/object-properties/" class="nav-link">
+  Object properties configuration
+</a></li><li class="dropdown-item"><!----> <a href="/prototypes/" class="nav-link">
+  Prototypes, inheritance
+</a></li><li class="dropdown-item"><!----> <a href="/classes/" class="nav-link">
+  Classes
+</a></li><li class="dropdown-item"><!----> <a href="/error-handling/" class="nav-link">
+  Error handling
+</a></li><li class="dropdown-item"><!----> <a href="/async/" class="nav-link">
+  Promises, async/await
+</a></li><li class="dropdown-item"><!----> <a href="/generators-iterators/" class="nav-link">
+  Generators, advanced iteration
+</a></li><li class="dropdown-item"><!----> <a href="/modules/" class="nav-link">
+  Modules
+</a></li><li class="dropdown-item"><!----> <a href="/js-misc/" class="nav-link">
+  Miscellaneous
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="进阶" class="dropdown-title"><span class="title">进阶</span> <span class="arrow down"></span></button> <button type="button" aria-label="进阶" class="mobile-dropdown-title"><span class="title">进阶</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/document/" class="nav-link">
+  Document
+</a></li><li class="dropdown-item"><!----> <a href="/events/" class="nav-link">
+  Introduction to Events
+</a></li><li class="dropdown-item"><!----> <a href="/event-details/" class="nav-link">
+  UI Events
+</a></li><li class="dropdown-item"><!----> <a href="/forms-controls/" class="nav-link">
+  Forms, controls
+</a></li><li class="dropdown-item"><!----> <a href="/loading/" class="nav-link">
+  Document and resource loading
+</a></li><li class="dropdown-item"><!----> <a href="/ui-misc/" class="nav-link">
+  Miscellaneous
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="专题" class="dropdown-title"><span class="title">专题</span> <span class="arrow down"></span></button> <button type="button" aria-label="专题" class="mobile-dropdown-title"><span class="title">专题</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/frames-and-windows/" class="nav-link">
+  Frames and windows
+</a></li><li class="dropdown-item"><!----> <a href="/binary/" class="nav-link">
+  Binary data, files
+</a></li><li class="dropdown-item"><!----> <a href="/network/" class="nav-link">
+  Network requests
+</a></li><li class="dropdown-item"><!----> <a href="/data-storage/" class="nav-link">
+  Storing data in the browser
+</a></li><li class="dropdown-item"><!----> <a href="/animation/" class="nav-link">
+  Animation
+</a></li><li class="dropdown-item"><!----> <a href="/web-components/" class="nav-link">
+  Web components
+</a></li><li class="dropdown-item"><!----> <a href="/regular-expressions/" class="nav-link">
+  Regular expressions
+</a></li></ul></div></div> <div class="nav-item"><a role="button" aria-label="Switch to light mode" class="nav-link"><span>Switch theme</span></a></div> <a href="https://github.com/wangyan/javascript-tutorial" target="_blank" rel="noopener noreferrer" class="repo-link">
+    查看源码
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link">
+  首页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="基础" class="dropdown-title"><span class="title">基础</span> <span class="arrow down"></span></button> <button type="button" aria-label="基础" class="mobile-dropdown-title"><span class="title">基础</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/getting-started/" class="nav-link">
+  An introduction
+</a></li><li class="dropdown-item"><!----> <a href="/first-steps/" class="nav-link">
+  JavaScript Fundamentals
+</a></li><li class="dropdown-item"><!----> <a href="/code-quality/" class="nav-link">
+  Code quality
+</a></li><li class="dropdown-item"><!----> <a href="/object-basics/" class="nav-link">
+  Objects: the basics
+</a></li><li class="dropdown-item"><!----> <a href="/data-types/" class="nav-link">
+  Data types
+</a></li><li class="dropdown-item"><!----> <a href="/advanced-functions/" class="nav-link">
+  Advanced working with functions
+</a></li><li class="dropdown-item"><!----> <a href="/object-properties/" class="nav-link">
+  Object properties configuration
+</a></li><li class="dropdown-item"><!----> <a href="/prototypes/" class="nav-link">
+  Prototypes, inheritance
+</a></li><li class="dropdown-item"><!----> <a href="/classes/" class="nav-link">
+  Classes
+</a></li><li class="dropdown-item"><!----> <a href="/error-handling/" class="nav-link">
+  Error handling
+</a></li><li class="dropdown-item"><!----> <a href="/async/" class="nav-link">
+  Promises, async/await
+</a></li><li class="dropdown-item"><!----> <a href="/generators-iterators/" class="nav-link">
+  Generators, advanced iteration
+</a></li><li class="dropdown-item"><!----> <a href="/modules/" class="nav-link">
+  Modules
+</a></li><li class="dropdown-item"><!----> <a href="/js-misc/" class="nav-link">
+  Miscellaneous
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="进阶" class="dropdown-title"><span class="title">进阶</span> <span class="arrow down"></span></button> <button type="button" aria-label="进阶" class="mobile-dropdown-title"><span class="title">进阶</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/document/" class="nav-link">
+  Document
+</a></li><li class="dropdown-item"><!----> <a href="/events/" class="nav-link">
+  Introduction to Events
+</a></li><li class="dropdown-item"><!----> <a href="/event-details/" class="nav-link">
+  UI Events
+</a></li><li class="dropdown-item"><!----> <a href="/forms-controls/" class="nav-link">
+  Forms, controls
+</a></li><li class="dropdown-item"><!----> <a href="/loading/" class="nav-link">
+  Document and resource loading
+</a></li><li class="dropdown-item"><!----> <a href="/ui-misc/" class="nav-link">
+  Miscellaneous
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="专题" class="dropdown-title"><span class="title">专题</span> <span class="arrow down"></span></button> <button type="button" aria-label="专题" class="mobile-dropdown-title"><span class="title">专题</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/frames-and-windows/" class="nav-link">
+  Frames and windows
+</a></li><li class="dropdown-item"><!----> <a href="/binary/" class="nav-link">
+  Binary data, files
+</a></li><li class="dropdown-item"><!----> <a href="/network/" class="nav-link">
+  Network requests
+</a></li><li class="dropdown-item"><!----> <a href="/data-storage/" class="nav-link">
+  Storing data in the browser
+</a></li><li class="dropdown-item"><!----> <a href="/animation/" class="nav-link">
+  Animation
+</a></li><li class="dropdown-item"><!----> <a href="/web-components/" class="nav-link">
+  Web components
+</a></li><li class="dropdown-item"><!----> <a href="/regular-expressions/" class="nav-link">
+  Regular expressions
+</a></li></ul></div></div> <div class="nav-item"><a role="button" aria-label="Switch to light mode" class="nav-link"><span>Switch theme</span></a></div> <a href="https://github.com/wangyan/javascript-tutorial" target="_blank" rel="noopener noreferrer" class="repo-link">
+    查看源码
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><a href="/1-js/01-getting-started/" class="sidebar-heading clickable"><span>第 1 节：简介</span> <!----></a> <ul class="sidebar-links sidebar-group-items"><li><a href="/intro/" class="sidebar-link">1.1. JavaScript 简介</a></li><li><a href="/manuals-specifications/" class="sidebar-link">1.2. 手册与规范</a></li><li><a href="/code-editors/" class="sidebar-link">1.3. 代码编辑器</a></li><li><a href="/devtools/" class="sidebar-link">1.4. 开发者控制台</a></li></ul></section></li><li><section class="sidebar-group depth-0"><a href="/1-js/02-first-steps/" class="sidebar-heading clickable"><span>第 2 节：JavaScript 基础知识</span> <!----></a> <ul class="sidebar-links sidebar-group-items"><li><a href="/hello-world/" class="sidebar-link">2.1. Hello, world!</a></li><li><a href="/structure/" class="sidebar-link">2.2. 代码结构</a></li><li><a href="/strict-mode/" class="sidebar-link">2.3. 现代模式，&quot;use strict&quot;</a></li><li><a href="/variables/" class="sidebar-link">2.4. 变量</a></li><li><a href="/types/" class="sidebar-link">2.5. 数据类型</a></li><li><a href="/alert-prompt-confirm/" class="sidebar-link">2.6. 交互：alert、prompt、confirm</a></li><li><a href="/type-conversions/" class="sidebar-link">2.7. 类型转换</a></li><li><a href="/operators/" class="sidebar-link">2.8. 运算符</a></li><li><a href="/comparison/" class="sidebar-link">2.9. 值的比较</a></li><li><a href="/ifelse/" class="sidebar-link">2.10. 条件运算符：if、?</a></li><li><a href="/logical-operators/" class="sidebar-link">2.11. 逻辑运算符</a></li><li><a href="/nullish-coalescing-operator/" class="sidebar-link">2.12. 空值合并运算符&quot;??&quot;</a></li><li><a href="/while-for/" class="sidebar-link">2.13. 循环：while 和 for</a></li><li><a href="/switch/" class="sidebar-link">2.14. &quot;switch&quot; 语句</a></li><li><a href="/function-basics/" class="sidebar-link">2.15. 函数</a></li><li><a href="/function-expressions/" class="sidebar-link">2.16. 函数表达式</a></li><li><a href="/arrow-functions-basics/" class="sidebar-link">2.17. 箭头函数，基础知识</a></li><li><a href="/javascript-specials/" class="sidebar-link">2.18. JavasScript 特性</a></li></ul></section></li><li><section class="sidebar-group depth-0"><a href="/1-js/03-code-quality/" class="sidebar-heading clickable"><span>第 3 节：代码质量</span> <!----></a> <ul class="sidebar-links sidebar-group-items"><li><a href="/debugging-chrome/" class="sidebar-link">3.1. 在 Chrome 中调试</a></li><li><a href="/coding-style/" class="sidebar-link">3.2. 代码风格</a></li><li><a href="/comments/" class="sidebar-link">3.3. 注释</a></li><li><a href="/ninja-code/" class="sidebar-link">3.4. 忍者代码</a></li><li><a href="/testing-mocha/" class="sidebar-link">3.5. 使用 mocha 进行自动化测试</a></li><li><a href="/polyfills/" class="sidebar-link">3.6. Polyfills</a></li></ul></section></li><li><section class="sidebar-group depth-0"><a href="/1-js/04-object-basics/" class="sidebar-heading clickable open"><span>第 4 节：Object 基础知识</span> <!----></a> <ul class="sidebar-links sidebar-group-items"><li><a href="/object/" class="sidebar-link">4.1. 对象</a></li><li><a href="/object-copy/" class="sidebar-link">4.2. 对象引用和复制</a></li><li><a href="/garbage-collection/" aria-current="page" class="active sidebar-link">4.3. 垃圾回收</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/garbage-collection/#可达性-reachability" class="sidebar-link">可达性（Reachability）</a></li><li class="sidebar-sub-header"><a href="/garbage-collection/#一个简单的例子" class="sidebar-link">一个简单的例子</a></li><li class="sidebar-sub-header"><a href="/garbage-collection/#两个引用" class="sidebar-link">两个引用</a></li><li class="sidebar-sub-header"><a href="/garbage-collection/#相互关联的对象" class="sidebar-link">相互关联的对象</a></li><li class="sidebar-sub-header"><a href="/garbage-collection/#无法到达的岛屿" class="sidebar-link">无法到达的岛屿</a></li><li class="sidebar-sub-header"><a href="/garbage-collection/#内部算法" class="sidebar-link">内部算法</a></li><li class="sidebar-sub-header"><a href="/garbage-collection/#总结" class="sidebar-link">总结</a></li></ul></li><li><a href="/object-methods/" class="sidebar-link">4.4. 对象方法，&quot;this&quot;</a></li><li><a href="/constructor-new/" class="sidebar-link">4.5. 构造器和操作符 &quot;new&quot;</a></li><li><a href="/optional-chaining/" class="sidebar-link">4.6. 可选链 &quot;?.&quot;</a></li><li><a href="/symbol/" class="sidebar-link">4.7. Symbol 类型</a></li><li><a href="/object-toprimitive/" class="sidebar-link">4.8. 对象 — 原始值转换</a></li></ul></section></li><li><section class="sidebar-group depth-0"><a href="/1-js/05-data-types/" class="sidebar-heading clickable"><span>第 5 节：数据类型</span> <!----></a> <ul class="sidebar-links sidebar-group-items"><li><a href="/primitives-methods/" class="sidebar-link">5.1. 原始类型的方法</a></li><li><a href="/number/" class="sidebar-link">5.2. 数字类型</a></li><li><a href="/string/" class="sidebar-link">5.3. 字符串</a></li><li><a href="/1-js/05-data-types/04-array/article.html" class="sidebar-link">5.4. 数组</a></li><li><a href="/1-js/05-data-types/05-array-methods/article.html" class="sidebar-link">5.5. 数组方法</a></li><li><a href="/1-js/05-data-types/06-iterable/article.html" class="sidebar-link">5.6. 可迭代对象</a></li><li><a href="/1-js/05-data-types/07-map-set/article.html" class="sidebar-link">5.7. 映射和集合</a></li><li><a href="/1-js/05-data-types/08-weakmap-weakset/article.html" class="sidebar-link">5.8. 弱映射和弱集合</a></li><li><a href="/1-js/05-data-types/09-keys-values-entries/article.html" class="sidebar-link">5.9. Object.keys，values，entries</a></li><li><a href="/1-js/05-data-types/10-destructuring-assignment/article.html" class="sidebar-link">5.10. 解构赋值</a></li><li><a href="/1-js/05-data-types/11-date/article.html" class="sidebar-link">5.11. 日期和时间</a></li><li><a href="/1-js/05-data-types/12-json/article.html" class="sidebar-link">5.12. JSON 方法，toJSON</a></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-succinct-content content__default"><h1 id="垃圾回收"><a href="#垃圾回收" class="header-anchor">#</a> 垃圾回收</h1> <p>对于开发者来说，JavaScript 的内存管理是自动的、无形的。我们创建的原始值、对象、函数……这一切都会占用内存。</p> <p>当我们不再需要某个东西时会发生什么？JavaScript 引擎如何发现它并清理它？</p> <h2 id="可达性-reachability"><a href="#可达性-reachability" class="header-anchor">#</a> 可达性（Reachability）</h2> <p>JavaScript 中主要的内存管理概念是 <strong>可达性</strong>。</p> <p>简而言之，“可达”值是那些以某种方式可访问或可用的值。它们一定是存储在内存中的。</p> <ol><li><p>这里列出固有的可达值的基本集合，这些值明显不能被释放。</p> <p>比方说：</p> <ul><li>当前函数的局部变量和参数。</li> <li>嵌套调用时，当前调用链上所有函数的变量与参数。</li> <li>全局变量。</li> <li>（还有一些内部的）</li></ul> <p>这些值被称作 <strong>根（roots）</strong>。</p></li> <li><p>如果一个值可以通过引用或引用链从根访问任何其他值，则认为该值是可达的。</p> <p>比方说，如果全局变量中有一个对象，并且该对象有一个属性引用了另一个对象，则 <strong>该</strong> 对象被认为是可达的。而且它引用的内容也是可达的。下面是详细的例子。</p></li></ol> <p>在 JavaScript 引擎中有一个被称作 <a href="https://en.wikipedia.org/wiki/Garbage_collection_(computer_science)" target="_blank" rel="noopener noreferrer">垃圾回收器<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a> 的东西在后台执行。它监控着所有对象的状态，并删除掉那些已经不可达的。</p> <h2 id="一个简单的例子"><a href="#一个简单的例子" class="header-anchor">#</a> 一个简单的例子</h2> <p>这里是一个最简单的例子：</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// user 具有对这个对象的引用</span>
+<span class="token keyword">let</span> user <span class="token operator">=</span> <span class="token punctuation">{</span>
+  name<span class="token operator">:</span> <span class="token string">&quot;John&quot;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre></div><p><img src="/assets/img/memory-user-john.a12077bc.svg" alt=""></p> <p>这里的箭头描述了一个对象引用。全局变量 <code>&quot;user&quot;</code> 引用了对象 <code>{name：&quot;John&quot;}</code>（为简洁起见，我们称它为 John）。John 的 <code>&quot;name&quot;</code> 属性存储一个原始值，所以它被写在对象内部。</p> <p>如果 <code>user</code> 的值被重写了，这个引用就没了：</p> <div class="language-js extra-class"><pre class="language-js"><code>user <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+</code></pre></div><p><img src="/assets/img/memory-user-john-lost.e857e2c1.svg" alt=""></p> <p>现在 John 变成不可达的了。因为没有引用了，就不能访问到它了。垃圾回收器会认为它是垃圾数据并进行回收，然后释放内存。</p> <h2 id="两个引用"><a href="#两个引用" class="header-anchor">#</a> 两个引用</h2> <p>现在让我们想象下，我们把 <code>user</code> 的引用复制给 <code>admin</code>：</p> <div class="language-js extra-class"><div class="highlight-lines"><br><br><br><br><br><div class="highlighted"> </div><br></div><pre class="language-js"><code><span class="token comment">// user 具有对这个对象的引用</span>
+<span class="token keyword">let</span> user <span class="token operator">=</span> <span class="token punctuation">{</span>
+  name<span class="token operator">:</span> <span class="token string">&quot;John&quot;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token keyword">let</span> admin <span class="token operator">=</span> user<span class="token punctuation">;</span>
+</code></pre></div><p><img src="/assets/img/memory-user-john-admin.aeeb024c.svg" alt=""></p> <p>现在如果执行刚刚的那个操作：</p> <div class="language-js extra-class"><pre class="language-js"><code>user <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+</code></pre></div><p>……然后对象仍然可以被通过 <code>admin</code> 这个全局变量访问到，所以对象还在内存中。如果我们又重写了 <code>admin</code>，对象就会被删除。</p> <h2 id="相互关联的对象"><a href="#相互关联的对象" class="header-anchor">#</a> 相互关联的对象</h2> <p>现在来看一个更复杂的例子。这是个家庭：</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">function</span> <span class="token function">marry</span><span class="token punctuation">(</span><span class="token parameter">man<span class="token punctuation">,</span> woman</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  woman<span class="token punctuation">.</span>husband <span class="token operator">=</span> man<span class="token punctuation">;</span>
+  man<span class="token punctuation">.</span>wife <span class="token operator">=</span> woman<span class="token punctuation">;</span>
+
+  <span class="token keyword">return</span> <span class="token punctuation">{</span>
+    father<span class="token operator">:</span> man<span class="token punctuation">,</span>
+    mother<span class="token operator">:</span> woman
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">let</span> family <span class="token operator">=</span> <span class="token function">marry</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  name<span class="token operator">:</span> <span class="token string">&quot;John&quot;</span>
+<span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+  name<span class="token operator">:</span> <span class="token string">&quot;Ann&quot;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><p><code>marry</code> 函数通过让两个对象相互引用使它们“结婚”了，并返回了一个包含这两个对象的新对象。</p> <p>由此产生的内存结构：</p> <p><img src="/assets/img/family.229bc950.svg" alt=""></p> <p>到目前为止，所有对象都是可达的。</p> <p>现在让我们移除两个引用：</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">delete</span> family<span class="token punctuation">.</span>father<span class="token punctuation">;</span>
+<span class="token keyword">delete</span> family<span class="token punctuation">.</span>mother<span class="token punctuation">.</span>husband<span class="token punctuation">;</span>
+</code></pre></div><p><img src="/assets/img/family-delete-refs.8ed0c2ac.svg" alt=""></p> <p>仅删除这两个引用中的一个是不够的，因为所有的对象仍然都是可达的。</p> <p>但是，如果我们把这两个都删除，那么我们可以看到再也没有对 John 的引用了：</p> <p><img src="/assets/img/family-no-father.3661cfb1.svg" alt=""></p> <p>对外引用不重要，只有传入引用才可以使对象可达。所以，John 现在是不可达的，并且将被从内存中删除，同时 John 的所有数据也将变得不可达。</p> <p>经过垃圾回收：</p> <p><img src="/assets/img/family-no-father-2.268edbb0.svg" alt=""></p> <h2 id="无法到达的岛屿"><a href="#无法到达的岛屿" class="header-anchor">#</a> 无法到达的岛屿</h2> <p>几个对象相互引用，但外部没有对其任意对象的引用，这些对象也可能是不可达的，并被从内存中删除。</p> <p>源对象与上面相同。然后：</p> <div class="language-js extra-class"><pre class="language-js"><code>family <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+</code></pre></div><p>内存内部状态将变成：</p> <p><img src="/assets/img/family-no-family.b6c80bce.svg" alt=""></p> <p>这个例子展示了可达性概念的重要性。</p> <p>显而易见，John 和 Ann 仍然连着，都有传入的引用。但是，这样还不够。</p> <p>前面说的 <code>&quot;family&quot;</code> 对象已经不再与根相连，没有了外部对其的引用，所以它变成了一座“孤岛”，并且将被从内存中删除。</p> <h2 id="内部算法"><a href="#内部算法" class="header-anchor">#</a> 内部算法</h2> <p>垃圾回收的基本算法被称为 &quot;mark-and-sweep&quot;。</p> <p>定期执行以下“垃圾回收”步骤：</p> <ul><li>垃圾收集器找到所有的根，并“标记”（记住）它们。</li> <li>然后它遍历并“标记”来自它们的所有引用。</li> <li>然后它遍历标记的对象并标记 <strong>它们的</strong> 引用。所有被遍历到的对象都会被记住，以免将来再次遍历到同一个对象。</li> <li>……如此操作，直到所有可达的（从根部）引用都被访问到。</li> <li>没有被标记的对象都会被删除。</li></ul> <p>例如，使我们的对象有如下的结构：</p> <p><img src="/assets/img/garbage-collection-1.8090a21e.svg" alt=""></p> <p>我们可以清楚地看到右侧有一个“无法到达的岛屿”。现在我们来看看“标记和清除”垃圾收集器如何处理它。</p> <p>第一步标记所有的根：</p> <p><img src="/assets/img/garbage-collection-2.4a507a46.svg" alt=""></p> <p>然后它们的引用被标记了：</p> <p><img src="/assets/img/garbage-collection-3.afa52a2e.svg" alt=""></p> <p>……如果还有引用的话，继续标记：</p> <p><img src="/assets/img/garbage-collection-4.ca549105.svg" alt=""></p> <p>现在，无法通过这个过程访问到的对象被认为是不可达的，并且会被删除。</p> <p><img src="/assets/img/garbage-collection-5.ca9ffca4.svg" alt=""></p> <p>我们还可以将这个过程想象成从根溢出一个巨大的油漆桶，它流经所有引用并标记所有可到达的对象。然后移除未标记的。</p> <p>这是垃圾收集工作的概念。JavaScript 引擎做了许多优化，使垃圾回收运行速度更快，并且不影响正常代码运行。</p> <p>一些优化建议：</p> <ul><li><strong>分代收集（Generational collection）</strong>—— 对象被分成两组：“新的”和“旧的”。许多对象出现，完成它们的工作并很快死去，它们可以很快被清理。那些长期存活的对象会变得“老旧”，而且被检查的频次也会减少。</li> <li><strong>增量收集（Incremental collection）</strong>—— 如果有许多对象，并且我们试图一次遍历并标记整个对象集，则可能需要一些时间，并在执行过程中带来明显的延迟。所以引擎试图将垃圾收集工作分成几部分来做。然后将这几部分会逐一进行处理。这需要它们之间有额外的标记来追踪变化，但是这样会有许多微小的延迟而不是一个大的延迟。</li> <li><strong>闲时收集（Idle-time collection）</strong>—— 垃圾收集器只会在 CPU 空闲时尝试运行，以减少可能对代码执行的影响。</li></ul> <p>还有其他垃圾回收算法的优化和风格。尽管我想在这里描述它们，但我必须打住了，因为不同的引擎会有不同的调整和技巧。而且，更重要的是，随着引擎的发展，情况会发生变化，所以在没有真实需求的时候，“提前”学习这些内容是不值得的。当然，除非你纯粹是出于兴趣。我在下面给你提供了一些相关链接。</p> <h2 id="总结"><a href="#总结" class="header-anchor">#</a> 总结</h2> <p>主要需要掌握的内容：</p> <ul><li>垃圾回收是自动完成的，我们不能强制执行或是阻止执行。</li> <li>当对象是可达状态时，它一定是存在于内存中的。</li> <li>被引用与可访问（从一个根）不同：一组相互连接的对象可能整体都不可达。</li></ul> <p>现代引擎实现了垃圾回收的高级算法。</p> <p>《The Garbage Collection Handbook: The Art of Automatic Memory Management》（R. Jones 等人著）这本书涵盖了其中一些内容。</p> <p>如果你熟悉底层（low-level）编程，关于 V8 引擎垃圾回收器的更详细信息请参阅文章 <a href="http://jayconrod.com/posts/55/a-tour-of-v8-garbage-collection" target="_blank" rel="noopener noreferrer">V8 之旅：垃圾回收<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a>。</p> <p><a href="http://v8project.blogspot.com/" target="_blank" rel="noopener noreferrer">V8 博客<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a> 还不时发布关于内存管理变化的文章。当然，为了学习垃圾收集，你最好通过学习 V8 引擎内部知识来进行准备，并阅读一个名为 <a href="http://mrale.ph" target="_blank" rel="noopener noreferrer">Vyacheslav Egorov<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a> 的 V8 引擎工程师的博客。我之所以说 “V8”，因为网上关于它的文章最丰富的。对于其他引擎，许多方法是相似的，但在垃圾收集上许多方面有所不同。</p> <p>当你需要底层的优化时，对引擎有深入了解将很有帮助。在熟悉了这门编程语言之后，把熟悉引擎作为下一步计划是明智之选。</p></div> <footer class="page-edit"><div class="edit-link"><a href="https://github.com/wangyan/vuepress-javascript/edit/develop/docs/1-js/04-object-basics/03-garbage-collection/article.md" target="_blank" rel="noopener noreferrer">在 GitHub 上编辑</a> <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></div> <div class="last-updated"><span class="prefix">最后更新时间:</span> <span class="time">2021/6/29 下午11:18:28</span></div></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ⟵
+      <a href="/object-copy/" class="prev">
+        4.2. 对象引用和复制
+      </a></span> <span class="next"><a href="/object-methods/">
+        4.4. 对象方法，&quot;this&quot;
+      </a>
+      ⟶
+    </span></p></div> </main></div><div class="global-ui"><div style="visibility:hidden;display:none;"></div><!----><!----></div></div>
+    <script src="/assets/js/app.83f5da50.js" defer></script><script src="/assets/js/2.741d139e.js" defer></script><script src="/assets/js/3.63868dc5.js" defer></script><script src="/assets/js/20.2b87c008.js" defer></script>
+  </body>
+</html>

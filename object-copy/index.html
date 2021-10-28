@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>对象引用和复制 | 现代 JavaScript 教程</title>
+    <meta name="generator" content="VuePress 1.8.2">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="icon" type="image/png" sizes="36x36" href="/icons/icon-ldpi-36x36.png">
+    <link rel="apple-touch-icon" type="image/png" sizes="36x36" href="/icons/icon-ldpi-36x36.png">
+    <link rel="icon" sizes="48x48" href="/icons/icon-mdpi-48x48.png">
+    <link rel="apple-touch-icon" sizes="48x48" href="/icons/icon-mdpi-48x48.png">
+    <link rel="icon" sizes="72x72" href="/icons/icon-hdpi-72x72.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/icons/icon-hdpi-72x72.png">
+    <link rel="icon" sizes="96x96" href="/icons/icon-xhdpi-96x96.png">
+    <link rel="apple-touch-icon" sizes="96x96" href="/icons/icon-xhdpi-96x96.png">
+    <link rel="icon" sizes="144x144" href="/icons/icon-xxhdpi-144x144.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/icons/icon-xxhdpi-144x144.png">
+    <link rel="icon" sizes="192x192" href="/icons/icon-xxxhdpi-192x192.png">
+    <link rel="apple-touch-icon" sizes="192x192" href="/icons/icon-xxxhdpi-192x192.png">
+    <link rel="icon" sizes="512x512" href="/icons/icon-72dpi-512x512.png">
+    <link rel="apple-touch-icon" sizes="512x512" href="/icons/icon-72dpi-512x512.png">
+    <link rel="icon" sizes="1024x1024" href="/icons/icon-144dpi-1024x1024.png">
+    <link rel="apple-touch-icon" sizes="1024x1024" href="/icons/icon-144dpi-1024x1024.png">
+    <meta name="description" content="以最新的 JavaScript 标准为基准。通过简单但足够详细的内容，为你讲解从基础到高阶的 JavaScript 相关知识。">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="application-name" content="现代 JavaScript 教程">
+    <meta name="apple-mobile-web-app-title" content="现代 JavaScript 教程">
+    <meta name="theme-color" content="#fff">
+    <meta name="msapplication-navbutton-color" content="#fff">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="msapplication-starturl" content="index.html">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <link rel="preload" href="/assets/css/0.styles.d0e1634f.css" as="style"><link rel="preload" href="/assets/js/app.83f5da50.js" as="script"><link rel="preload" href="/assets/js/2.741d139e.js" as="script"><link rel="preload" href="/assets/js/8.898da7ef.js" as="script"><link rel="preload" href="/assets/js/20.2b87c008.js" as="script"><link rel="prefetch" href="/assets/js/10.9650b6ca.js"><link rel="prefetch" href="/assets/js/11.1c6d6528.js"><link rel="prefetch" href="/assets/js/12.43731225.js"><link rel="prefetch" href="/assets/js/13.59881730.js"><link rel="prefetch" href="/assets/js/14.341aa408.js"><link rel="prefetch" href="/assets/js/15.37f20174.js"><link rel="prefetch" href="/assets/js/16.e65623b0.js"><link rel="prefetch" href="/assets/js/17.525277bd.js"><link rel="prefetch" href="/assets/js/18.7e5fe6b0.js"><link rel="prefetch" href="/assets/js/19.8a423a32.js"><link rel="prefetch" href="/assets/js/21.35925ffe.js"><link rel="prefetch" href="/assets/js/22.7220c015.js"><link rel="prefetch" href="/assets/js/23.f91fed20.js"><link rel="prefetch" href="/assets/js/24.f55fca3f.js"><link rel="prefetch" href="/assets/js/25.ab318aa9.js"><link rel="prefetch" href="/assets/js/26.2515724b.js"><link rel="prefetch" href="/assets/js/27.2d48422d.js"><link rel="prefetch" href="/assets/js/28.bf73e5a5.js"><link rel="prefetch" href="/assets/js/29.7add7094.js"><link rel="prefetch" href="/assets/js/3.63868dc5.js"><link rel="prefetch" href="/assets/js/30.f16b582f.js"><link rel="prefetch" href="/assets/js/31.1cbe3b01.js"><link rel="prefetch" href="/assets/js/32.49ad9f58.js"><link rel="prefetch" href="/assets/js/33.831966e9.js"><link rel="prefetch" href="/assets/js/34.c3cecff7.js"><link rel="prefetch" href="/assets/js/35.d60a17a1.js"><link rel="prefetch" href="/assets/js/36.6a6802c9.js"><link rel="prefetch" href="/assets/js/37.aaf3f6a6.js"><link rel="prefetch" href="/assets/js/38.11598708.js"><link rel="prefetch" href="/assets/js/39.8a3cbf96.js"><link rel="prefetch" href="/assets/js/4.471c379b.js"><link rel="prefetch" href="/assets/js/40.146fd1a9.js"><link rel="prefetch" href="/assets/js/41.2caf8da3.js"><link rel="prefetch" href="/assets/js/42.583d4934.js"><link rel="prefetch" href="/assets/js/43.39c6c351.js"><link rel="prefetch" href="/assets/js/44.fdd6dece.js"><link rel="prefetch" href="/assets/js/45.3e97a42c.js"><link rel="prefetch" href="/assets/js/46.8da318e6.js"><link rel="prefetch" href="/assets/js/47.e8cce718.js"><link rel="prefetch" href="/assets/js/48.e29e5227.js"><link rel="prefetch" href="/assets/js/49.a53d3ef6.js"><link rel="prefetch" href="/assets/js/5.e81fb6e4.js"><link rel="prefetch" href="/assets/js/50.ff4d9108.js"><link rel="prefetch" href="/assets/js/51.87e52449.js"><link rel="prefetch" href="/assets/js/52.6b5fe7f7.js"><link rel="prefetch" href="/assets/js/53.f3afeef2.js"><link rel="prefetch" href="/assets/js/54.5569b62a.js"><link rel="prefetch" href="/assets/js/55.2e2222fd.js"><link rel="prefetch" href="/assets/js/56.2680f090.js"><link rel="prefetch" href="/assets/js/57.5df03027.js"><link rel="prefetch" href="/assets/js/58.fd022198.js"><link rel="prefetch" href="/assets/js/59.cdac29d4.js"><link rel="prefetch" href="/assets/js/6.49d91683.js"><link rel="prefetch" href="/assets/js/60.8d56ce67.js"><link rel="prefetch" href="/assets/js/61.025320dd.js"><link rel="prefetch" href="/assets/js/62.6d59a313.js"><link rel="prefetch" href="/assets/js/63.3f382f49.js"><link rel="prefetch" href="/assets/js/64.031ae36b.js"><link rel="prefetch" href="/assets/js/65.65cab595.js"><link rel="prefetch" href="/assets/js/66.c110100c.js"><link rel="prefetch" href="/assets/js/67.cdcedc8b.js"><link rel="prefetch" href="/assets/js/7.84920acb.js"><link rel="prefetch" href="/assets/js/9.06ec3991.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.d0e1634f.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">现代 JavaScript 教程</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link">
+  首页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="基础" class="dropdown-title"><span class="title">基础</span> <span class="arrow down"></span></button> <button type="button" aria-label="基础" class="mobile-dropdown-title"><span class="title">基础</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/getting-started/" class="nav-link">
+  An introduction
+</a></li><li class="dropdown-item"><!----> <a href="/first-steps/" class="nav-link">
+  JavaScript Fundamentals
+</a></li><li class="dropdown-item"><!----> <a href="/code-quality/" class="nav-link">
+  Code quality
+</a></li><li class="dropdown-item"><!----> <a href="/object-basics/" class="nav-link">
+  Objects: the basics
+</a></li><li class="dropdown-item"><!----> <a href="/data-types/" class="nav-link">
+  Data types
+</a></li><li class="dropdown-item"><!----> <a href="/advanced-functions/" class="nav-link">
+  Advanced working with functions
+</a></li><li class="dropdown-item"><!----> <a href="/object-properties/" class="nav-link">
+  Object properties configuration
+</a></li><li class="dropdown-item"><!----> <a href="/prototypes/" class="nav-link">
+  Prototypes, inheritance
+</a></li><li class="dropdown-item"><!----> <a href="/classes/" class="nav-link">
+  Classes
+</a></li><li class="dropdown-item"><!----> <a href="/error-handling/" class="nav-link">
+  Error handling
+</a></li><li class="dropdown-item"><!----> <a href="/async/" class="nav-link">
+  Promises, async/await
+</a></li><li class="dropdown-item"><!----> <a href="/generators-iterators/" class="nav-link">
+  Generators, advanced iteration
+</a></li><li class="dropdown-item"><!----> <a href="/modules/" class="nav-link">
+  Modules
+</a></li><li class="dropdown-item"><!----> <a href="/js-misc/" class="nav-link">
+  Miscellaneous
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="进阶" class="dropdown-title"><span class="title">进阶</span> <span class="arrow down"></span></button> <button type="button" aria-label="进阶" class="mobile-dropdown-title"><span class="title">进阶</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/document/" class="nav-link">
+  Document
+</a></li><li class="dropdown-item"><!----> <a href="/events/" class="nav-link">
+  Introduction to Events
+</a></li><li class="dropdown-item"><!----> <a href="/event-details/" class="nav-link">
+  UI Events
+</a></li><li class="dropdown-item"><!----> <a href="/forms-controls/" class="nav-link">
+  Forms, controls
+</a></li><li class="dropdown-item"><!----> <a href="/loading/" class="nav-link">
+  Document and resource loading
+</a></li><li class="dropdown-item"><!----> <a href="/ui-misc/" class="nav-link">
+  Miscellaneous
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="专题" class="dropdown-title"><span class="title">专题</span> <span class="arrow down"></span></button> <button type="button" aria-label="专题" class="mobile-dropdown-title"><span class="title">专题</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/frames-and-windows/" class="nav-link">
+  Frames and windows
+</a></li><li class="dropdown-item"><!----> <a href="/binary/" class="nav-link">
+  Binary data, files
+</a></li><li class="dropdown-item"><!----> <a href="/network/" class="nav-link">
+  Network requests
+</a></li><li class="dropdown-item"><!----> <a href="/data-storage/" class="nav-link">
+  Storing data in the browser
+</a></li><li class="dropdown-item"><!----> <a href="/animation/" class="nav-link">
+  Animation
+</a></li><li class="dropdown-item"><!----> <a href="/web-components/" class="nav-link">
+  Web components
+</a></li><li class="dropdown-item"><!----> <a href="/regular-expressions/" class="nav-link">
+  Regular expressions
+</a></li></ul></div></div> <div class="nav-item"><a role="button" aria-label="Switch to light mode" class="nav-link"><span>Switch theme</span></a></div> <a href="https://github.com/wangyan/javascript-tutorial" target="_blank" rel="noopener noreferrer" class="repo-link">
+    查看源码
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link">
+  首页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="基础" class="dropdown-title"><span class="title">基础</span> <span class="arrow down"></span></button> <button type="button" aria-label="基础" class="mobile-dropdown-title"><span class="title">基础</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/getting-started/" class="nav-link">
+  An introduction
+</a></li><li class="dropdown-item"><!----> <a href="/first-steps/" class="nav-link">
+  JavaScript Fundamentals
+</a></li><li class="dropdown-item"><!----> <a href="/code-quality/" class="nav-link">
+  Code quality
+</a></li><li class="dropdown-item"><!----> <a href="/object-basics/" class="nav-link">
+  Objects: the basics
+</a></li><li class="dropdown-item"><!----> <a href="/data-types/" class="nav-link">
+  Data types
+</a></li><li class="dropdown-item"><!----> <a href="/advanced-functions/" class="nav-link">
+  Advanced working with functions
+</a></li><li class="dropdown-item"><!----> <a href="/object-properties/" class="nav-link">
+  Object properties configuration
+</a></li><li class="dropdown-item"><!----> <a href="/prototypes/" class="nav-link">
+  Prototypes, inheritance
+</a></li><li class="dropdown-item"><!----> <a href="/classes/" class="nav-link">
+  Classes
+</a></li><li class="dropdown-item"><!----> <a href="/error-handling/" class="nav-link">
+  Error handling
+</a></li><li class="dropdown-item"><!----> <a href="/async/" class="nav-link">
+  Promises, async/await
+</a></li><li class="dropdown-item"><!----> <a href="/generators-iterators/" class="nav-link">
+  Generators, advanced iteration
+</a></li><li class="dropdown-item"><!----> <a href="/modules/" class="nav-link">
+  Modules
+</a></li><li class="dropdown-item"><!----> <a href="/js-misc/" class="nav-link">
+  Miscellaneous
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="进阶" class="dropdown-title"><span class="title">进阶</span> <span class="arrow down"></span></button> <button type="button" aria-label="进阶" class="mobile-dropdown-title"><span class="title">进阶</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/document/" class="nav-link">
+  Document
+</a></li><li class="dropdown-item"><!----> <a href="/events/" class="nav-link">
+  Introduction to Events
+</a></li><li class="dropdown-item"><!----> <a href="/event-details/" class="nav-link">
+  UI Events
+</a></li><li class="dropdown-item"><!----> <a href="/forms-controls/" class="nav-link">
+  Forms, controls
+</a></li><li class="dropdown-item"><!----> <a href="/loading/" class="nav-link">
+  Document and resource loading
+</a></li><li class="dropdown-item"><!----> <a href="/ui-misc/" class="nav-link">
+  Miscellaneous
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="专题" class="dropdown-title"><span class="title">专题</span> <span class="arrow down"></span></button> <button type="button" aria-label="专题" class="mobile-dropdown-title"><span class="title">专题</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/frames-and-windows/" class="nav-link">
+  Frames and windows
+</a></li><li class="dropdown-item"><!----> <a href="/binary/" class="nav-link">
+  Binary data, files
+</a></li><li class="dropdown-item"><!----> <a href="/network/" class="nav-link">
+  Network requests
+</a></li><li class="dropdown-item"><!----> <a href="/data-storage/" class="nav-link">
+  Storing data in the browser
+</a></li><li class="dropdown-item"><!----> <a href="/animation/" class="nav-link">
+  Animation
+</a></li><li class="dropdown-item"><!----> <a href="/web-components/" class="nav-link">
+  Web components
+</a></li><li class="dropdown-item"><!----> <a href="/regular-expressions/" class="nav-link">
+  Regular expressions
+</a></li></ul></div></div> <div class="nav-item"><a role="button" aria-label="Switch to light mode" class="nav-link"><span>Switch theme</span></a></div> <a href="https://github.com/wangyan/javascript-tutorial" target="_blank" rel="noopener noreferrer" class="repo-link">
+    查看源码
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><a href="/1-js/01-getting-started/" class="sidebar-heading clickable"><span>第 1 节：简介</span> <!----></a> <ul class="sidebar-links sidebar-group-items"><li><a href="/intro/" class="sidebar-link">1.1. JavaScript 简介</a></li><li><a href="/manuals-specifications/" class="sidebar-link">1.2. 手册与规范</a></li><li><a href="/code-editors/" class="sidebar-link">1.3. 代码编辑器</a></li><li><a href="/devtools/" class="sidebar-link">1.4. 开发者控制台</a></li></ul></section></li><li><section class="sidebar-group depth-0"><a href="/1-js/02-first-steps/" class="sidebar-heading clickable"><span>第 2 节：JavaScript 基础知识</span> <!----></a> <ul class="sidebar-links sidebar-group-items"><li><a href="/hello-world/" class="sidebar-link">2.1. Hello, world!</a></li><li><a href="/structure/" class="sidebar-link">2.2. 代码结构</a></li><li><a href="/strict-mode/" class="sidebar-link">2.3. 现代模式，&quot;use strict&quot;</a></li><li><a href="/variables/" class="sidebar-link">2.4. 变量</a></li><li><a href="/types/" class="sidebar-link">2.5. 数据类型</a></li><li><a href="/alert-prompt-confirm/" class="sidebar-link">2.6. 交互：alert、prompt、confirm</a></li><li><a href="/type-conversions/" class="sidebar-link">2.7. 类型转换</a></li><li><a href="/operators/" class="sidebar-link">2.8. 运算符</a></li><li><a href="/comparison/" class="sidebar-link">2.9. 值的比较</a></li><li><a href="/ifelse/" class="sidebar-link">2.10. 条件运算符：if、?</a></li><li><a href="/logical-operators/" class="sidebar-link">2.11. 逻辑运算符</a></li><li><a href="/nullish-coalescing-operator/" class="sidebar-link">2.12. 空值合并运算符&quot;??&quot;</a></li><li><a href="/while-for/" class="sidebar-link">2.13. 循环：while 和 for</a></li><li><a href="/switch/" class="sidebar-link">2.14. &quot;switch&quot; 语句</a></li><li><a href="/function-basics/" class="sidebar-link">2.15. 函数</a></li><li><a href="/function-expressions/" class="sidebar-link">2.16. 函数表达式</a></li><li><a href="/arrow-functions-basics/" class="sidebar-link">2.17. 箭头函数，基础知识</a></li><li><a href="/javascript-specials/" class="sidebar-link">2.18. JavasScript 特性</a></li></ul></section></li><li><section class="sidebar-group depth-0"><a href="/1-js/03-code-quality/" class="sidebar-heading clickable"><span>第 3 节：代码质量</span> <!----></a> <ul class="sidebar-links sidebar-group-items"><li><a href="/debugging-chrome/" class="sidebar-link">3.1. 在 Chrome 中调试</a></li><li><a href="/coding-style/" class="sidebar-link">3.2. 代码风格</a></li><li><a href="/comments/" class="sidebar-link">3.3. 注释</a></li><li><a href="/ninja-code/" class="sidebar-link">3.4. 忍者代码</a></li><li><a href="/testing-mocha/" class="sidebar-link">3.5. 使用 mocha 进行自动化测试</a></li><li><a href="/polyfills/" class="sidebar-link">3.6. Polyfills</a></li></ul></section></li><li><section class="sidebar-group depth-0"><a href="/1-js/04-object-basics/" class="sidebar-heading clickable open"><span>第 4 节：Object 基础知识</span> <!----></a> <ul class="sidebar-links sidebar-group-items"><li><a href="/object/" class="sidebar-link">4.1. 对象</a></li><li><a href="/object-copy/" aria-current="page" class="active sidebar-link">4.2. 对象引用和复制</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/object-copy/#通过引用来比较" class="sidebar-link">通过引用来比较</a></li><li class="sidebar-sub-header"><a href="/object-copy/#克隆与合并-object-assign" class="sidebar-link">克隆与合并，Object.assign</a></li><li class="sidebar-sub-header"><a href="/object-copy/#深层克隆" class="sidebar-link">深层克隆</a></li><li class="sidebar-sub-header"><a href="/object-copy/#总结" class="sidebar-link">总结</a></li></ul></li><li><a href="/garbage-collection/" class="sidebar-link">4.3. 垃圾回收</a></li><li><a href="/object-methods/" class="sidebar-link">4.4. 对象方法，&quot;this&quot;</a></li><li><a href="/constructor-new/" class="sidebar-link">4.5. 构造器和操作符 &quot;new&quot;</a></li><li><a href="/optional-chaining/" class="sidebar-link">4.6. 可选链 &quot;?.&quot;</a></li><li><a href="/symbol/" class="sidebar-link">4.7. Symbol 类型</a></li><li><a href="/object-toprimitive/" class="sidebar-link">4.8. 对象 — 原始值转换</a></li></ul></section></li><li><section class="sidebar-group depth-0"><a href="/1-js/05-data-types/" class="sidebar-heading clickable"><span>第 5 节：数据类型</span> <!----></a> <ul class="sidebar-links sidebar-group-items"><li><a href="/primitives-methods/" class="sidebar-link">5.1. 原始类型的方法</a></li><li><a href="/number/" class="sidebar-link">5.2. 数字类型</a></li><li><a href="/string/" class="sidebar-link">5.3. 字符串</a></li><li><a href="/1-js/05-data-types/04-array/article.html" class="sidebar-link">5.4. 数组</a></li><li><a href="/1-js/05-data-types/05-array-methods/article.html" class="sidebar-link">5.5. 数组方法</a></li><li><a href="/1-js/05-data-types/06-iterable/article.html" class="sidebar-link">5.6. 可迭代对象</a></li><li><a href="/1-js/05-data-types/07-map-set/article.html" class="sidebar-link">5.7. 映射和集合</a></li><li><a href="/1-js/05-data-types/08-weakmap-weakset/article.html" class="sidebar-link">5.8. 弱映射和弱集合</a></li><li><a href="/1-js/05-data-types/09-keys-values-entries/article.html" class="sidebar-link">5.9. Object.keys，values，entries</a></li><li><a href="/1-js/05-data-types/10-destructuring-assignment/article.html" class="sidebar-link">5.10. 解构赋值</a></li><li><a href="/1-js/05-data-types/11-date/article.html" class="sidebar-link">5.11. 日期和时间</a></li><li><a href="/1-js/05-data-types/12-json/article.html" class="sidebar-link">5.12. JSON 方法，toJSON</a></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-succinct-content content__default"><h1 id="对象引用和复制"><a href="#对象引用和复制" class="header-anchor">#</a> 对象引用和复制</h1> <p>与原始类型相比，对象的根本区别之一是对象是“通过引用”被存储和复制的，与原始类型值相反：字符串，数字，布尔值等 —— 始终是以“整体值”的形式被复制的。</p> <p>如果我们稍微看一下复制值时发生了什么，就很容易理解了。</p> <p>让我们从原始类型开始，例如一个字符串。</p> <p>这里我们将 <code>message</code> 复制到 <code>phrase</code>：</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">let</span> message <span class="token operator">=</span> <span class="token string">&quot;Hello!&quot;</span><span class="token punctuation">;</span>
+<span class="token keyword">let</span> phrase <span class="token operator">=</span> message<span class="token punctuation">;</span>
+</code></pre></div><p>结果我们就有了两个独立的变量，每个都存储着字符串 <code>&quot;Hello!&quot;</code>。</p> <p><img src="/assets/img/variable-copy-value.2bd43c1c.svg" alt=""></p> <p>显而易见的结果，对吧？</p> <p>但是，对象不是这样的。</p> <p><strong>赋值了对象的变量存储的不是对象本身，而是该对象“在内存中的地址”，换句话说就是对该对象的“引用”。</strong></p> <p>让我们看一个这样的变量的例子：</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">let</span> user <span class="token operator">=</span> <span class="token punctuation">{</span>
+  name<span class="token operator">:</span> <span class="token string">&quot;John&quot;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre></div><p>这是它实际存储在内存中的方式：</p> <p><img src="/assets/img/variable-contains-reference.035f3ac9.svg" alt=""></p> <p>该对象被存储在内存中的某个位置（在图片的右侧），而变量 <code>user</code>（在左侧）保存的是对其的“引用”。</p> <p>我们可以将对象变量（例如 <code>user</code>）想象成一张带有地址的纸。</p> <p>当我们对对象执行操作时，例如获取一个属性 <code>user.name</code>，JavaScript 引擎将对该地址进行搜索，并在实际对象上执行操作。</p> <p>现在，这就是为什么它很重要。</p> <p><strong>当一个对象变量被复制 —— 引用则被复制，而该对象并没有被复制。</strong></p> <p>例如：</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">let</span> user <span class="token operator">=</span> <span class="token punctuation">{</span> name<span class="token operator">:</span> <span class="token string">&quot;John&quot;</span> <span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token keyword">let</span> admin <span class="token operator">=</span> user<span class="token punctuation">;</span> <span class="token comment">// 复制引用</span>
+</code></pre></div><p>现在我们有了两个变量，它们保存的都是对同一个对象的引用：</p> <p><img src="/assets/img/variable-copy-reference.be43f776.svg" alt=""></p> <p>正如你所看到的，这里仍然只有一个对象，现在有两个引用它的变量。</p> <p>我们可以通过其中任意一个变量来访问该对象并修改它的内容：</p> <div class="language-js extra-class"><div class="highlight-lines"><br><br><br><br><div class="highlighted"> </div><br><div class="highlighted"> </div><br></div><pre class="language-js"><code><span class="token keyword">let</span> user <span class="token operator">=</span> <span class="token punctuation">{</span> name<span class="token operator">:</span> <span class="token string">'John'</span> <span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token keyword">let</span> admin <span class="token operator">=</span> user<span class="token punctuation">;</span>
+
+admin<span class="token punctuation">.</span>name <span class="token operator">=</span> <span class="token string">'Pete'</span><span class="token punctuation">;</span> <span class="token comment">// 通过 &quot;admin&quot; 引用来修改</span>
+
+<span class="token function">alert</span><span class="token punctuation">(</span>user<span class="token punctuation">.</span>name<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 'Pete'，修改能通过 &quot;user&quot; 引用看到</span>
+</code></pre></div><p>这就像我们有个带两把钥匙的柜子，并使用其中一把钥匙（<code>admin</code>）来打开它。那么，我们如果之后用另外一把钥匙（<code>user</code>），则也能看到更改。</p> <h2 id="通过引用来比较"><a href="#通过引用来比较" class="header-anchor">#</a> 通过引用来比较</h2> <p>仅当两个对象为同一对象时，两者才相等。</p> <p>例如，这里 <code>a</code> 和 <code>b</code> 两个变量都引用同一个对象，所以它们相等：</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">let</span> a <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token keyword">let</span> b <span class="token operator">=</span> a<span class="token punctuation">;</span> <span class="token comment">// 复制引用</span>
+
+<span class="token function">alert</span><span class="token punctuation">(</span> a <span class="token operator">==</span> b <span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// true，都引用同一对象</span>
+<span class="token function">alert</span><span class="token punctuation">(</span> a <span class="token operator">===</span> b <span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// true</span>
+</code></pre></div><p>而这里两个独立的对象则并不相等，即使它们看起来很像（都为空）：</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">let</span> a <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token keyword">let</span> b <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">;</span> <span class="token comment">// 两个独立的对象</span>
+
+<span class="token function">alert</span><span class="token punctuation">(</span> a <span class="token operator">==</span> b <span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// false</span>
+</code></pre></div><p>对于类似 <code>obj1 &gt; obj2</code> 的比较，或者跟一个原始类型值的比较 <code>obj == 5</code>，对象都会被转换为原始值。我们很快就会学到对象是如何转换的，但是说实话，很少需要进行这样的比较，通常是在编程错误的时候才会出现这种情况。</p> <h2 id="克隆与合并-object-assign"><a href="#克隆与合并-object-assign" class="header-anchor">#</a> 克隆与合并，Object.assign</h2> <p>那么，拷贝一个对象变量会又创建一个对相同对象的引用。</p> <p>但是，如果我们想要复制一个对象，那该怎么做呢？创建一个独立的拷贝，克隆？</p> <p>这也是可行的，但稍微有点困难，因为 JavaScript 没有提供对此操作的内建的方法。实际上，也很少需要这样做。通过引用进行拷贝在大多数情况下已经很好了。</p> <p>但是，如果我们真的想要这样做，那么就需要创建一个新对象，并通过遍历现有属性的结构，在原始类型值的层面，将其复制到新对象，以复制已有对象的结构。</p> <p>就像这样：</p> <div class="language-js extra-class"><div class="highlight-lines"><br><br><br><br><br><div class="highlighted"> </div><div class="highlighted"> </div><div class="highlighted"> </div><div class="highlighted"> </div><div class="highlighted"> </div><div class="highlighted"> </div><br><br><br><br><br><br></div><pre class="language-js"><code><span class="token keyword">let</span> user <span class="token operator">=</span> <span class="token punctuation">{</span>
+  name<span class="token operator">:</span> <span class="token string">&quot;John&quot;</span><span class="token punctuation">,</span>
+  age<span class="token operator">:</span> <span class="token number">30</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token keyword">let</span> clone <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">;</span> <span class="token comment">// 新的空对象</span>
+
+<span class="token comment">// 将 user 中所有的属性拷贝到其中</span>
+<span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> key <span class="token keyword">in</span> user<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  clone<span class="token punctuation">[</span>key<span class="token punctuation">]</span> <span class="token operator">=</span> user<span class="token punctuation">[</span>key<span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// 现在 clone 是带有相同内容的完全独立的对象</span>
+clone<span class="token punctuation">.</span>name <span class="token operator">=</span> <span class="token string">&quot;Pete&quot;</span><span class="token punctuation">;</span> <span class="token comment">// 改变了其中的数据</span>
+
+<span class="token function">alert</span><span class="token punctuation">(</span> user<span class="token punctuation">.</span>name <span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 原来的对象中的 name 属性依然是 John</span>
+</code></pre></div><p>我们也可以使用 <a href="https://developer.mozilla.org/zh/docs/Web/JavaScript/Reference/Global_Objects/Object/assign" target="_blank" rel="noopener noreferrer">Object.assign<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a> 方法来达成同样的效果。</p> <p>语法是：</p> <div class="language-js extra-class"><pre class="language-js"><code>Object<span class="token punctuation">.</span><span class="token function">assign</span><span class="token punctuation">(</span>dest<span class="token punctuation">,</span> <span class="token punctuation">[</span>src1<span class="token punctuation">,</span> src2<span class="token punctuation">,</span> src3<span class="token operator">...</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+</code></pre></div><ul><li>第一个参数 <code>dest</code> 是指目标对象。</li> <li>更后面的参数 <code>src1, ..., srcN</code>（可按需传递多个参数）是源对象。</li> <li>该方法将所有源对象的属性拷贝到目标对象 <code>dest</code> 中。换句话说，从第二个开始的所有参数的属性都被拷贝到第一个参数的对象中。</li> <li>调用结果返回 <code>dest</code>。</li></ul> <p>例如，我们可以用它来合并多个对象：</p> <div class="language-js extra-class"><div class="highlight-lines"><br><br><br><br><br><div class="highlighted"> </div><div class="highlighted"> </div><br><br><br></div><pre class="language-js"><code><span class="token keyword">let</span> user <span class="token operator">=</span> <span class="token punctuation">{</span> name<span class="token operator">:</span> <span class="token string">&quot;John&quot;</span> <span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token keyword">let</span> permissions1 <span class="token operator">=</span> <span class="token punctuation">{</span> canView<span class="token operator">:</span> <span class="token boolean">true</span> <span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token keyword">let</span> permissions2 <span class="token operator">=</span> <span class="token punctuation">{</span> canEdit<span class="token operator">:</span> <span class="token boolean">true</span> <span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token comment">// 将 permissions1 和 permissions2 中的所有属性都拷贝到 user 中</span>
+Object<span class="token punctuation">.</span><span class="token function">assign</span><span class="token punctuation">(</span>user<span class="token punctuation">,</span> permissions1<span class="token punctuation">,</span> permissions2<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// 现在 user = { name: &quot;John&quot;, canView: true, canEdit: true }</span>
+</code></pre></div><p>如果被拷贝的属性的属性名已经存在，那么它会被覆盖：</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">let</span> user <span class="token operator">=</span> <span class="token punctuation">{</span> name<span class="token operator">:</span> <span class="token string">&quot;John&quot;</span> <span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+Object<span class="token punctuation">.</span><span class="token function">assign</span><span class="token punctuation">(</span>user<span class="token punctuation">,</span> <span class="token punctuation">{</span> name<span class="token operator">:</span> <span class="token string">&quot;Pete&quot;</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token function">alert</span><span class="token punctuation">(</span>user<span class="token punctuation">.</span>name<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 现在 user = { name: &quot;Pete&quot; }</span>
+</code></pre></div><p>我们也可以用 <code>Object.assign</code> 代替 <code>for..in</code> 循环来进行简单克隆：</p> <div class="language-js extra-class"><div class="highlight-lines"><br><br><br><br><br><div class="highlighted"> </div><br></div><pre class="language-js"><code><span class="token keyword">let</span> user <span class="token operator">=</span> <span class="token punctuation">{</span>
+  name<span class="token operator">:</span> <span class="token string">&quot;John&quot;</span><span class="token punctuation">,</span>
+  age<span class="token operator">:</span> <span class="token number">30</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token keyword">let</span> clone <span class="token operator">=</span> Object<span class="token punctuation">.</span><span class="token function">assign</span><span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span> user<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><p>它将 <code>user</code> 中的所有属性拷贝到了一个空对象中，并返回这个新的对象。</p> <h2 id="深层克隆"><a href="#深层克隆" class="header-anchor">#</a> 深层克隆</h2> <p>到现在为止，我们都假设 <code>user</code> 的所有属性均为原始类型。但属性可以是对其他对象的引用。那应该怎样处理它们呢？</p> <p>例如：</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">let</span> user <span class="token operator">=</span> <span class="token punctuation">{</span>
+  name<span class="token operator">:</span> <span class="token string">&quot;John&quot;</span><span class="token punctuation">,</span>
+  sizes<span class="token operator">:</span> <span class="token punctuation">{</span>
+    height<span class="token operator">:</span> <span class="token number">182</span><span class="token punctuation">,</span>
+    width<span class="token operator">:</span> <span class="token number">50</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token function">alert</span><span class="token punctuation">(</span> user<span class="token punctuation">.</span>sizes<span class="token punctuation">.</span>height <span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 182</span>
+</code></pre></div><p>现在这样拷贝 <code>clone.sizes = user.sizes</code> 已经不足够了，因为 <code>user.sizes</code> 是个对象，它会以引用形式被拷贝。因此 <code>clone</code> 和 <code>user</code> 会共用一个 sizes：</p> <p>就像这样：</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">let</span> user <span class="token operator">=</span> <span class="token punctuation">{</span>
+  name<span class="token operator">:</span> <span class="token string">&quot;John&quot;</span><span class="token punctuation">,</span>
+  sizes<span class="token operator">:</span> <span class="token punctuation">{</span>
+    height<span class="token operator">:</span> <span class="token number">182</span><span class="token punctuation">,</span>
+    width<span class="token operator">:</span> <span class="token number">50</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token keyword">let</span> clone <span class="token operator">=</span> Object<span class="token punctuation">.</span><span class="token function">assign</span><span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span> user<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token function">alert</span><span class="token punctuation">(</span> user<span class="token punctuation">.</span>sizes <span class="token operator">===</span> clone<span class="token punctuation">.</span>sizes <span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// true，同一个对象</span>
+
+<span class="token comment">// user 和 clone 分享同一个 sizes</span>
+user<span class="token punctuation">.</span>sizes<span class="token punctuation">.</span>width<span class="token operator">++</span><span class="token punctuation">;</span>       <span class="token comment">// 通过其中一个改变属性值</span>
+<span class="token function">alert</span><span class="token punctuation">(</span>clone<span class="token punctuation">.</span>sizes<span class="token punctuation">.</span>width<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 51，能从另外一个看到变更的结果</span>
+</code></pre></div><p>为了解决此问题，我们应该使用会检查每个 <code>user[key]</code> 的值的克隆循环，如果值是一个对象，那么也要复制它的结构。这就叫“深拷贝”。</p> <p>我们可以用递归来实现。或者不自己造轮子，使用现成的实现，例如 JavaScript 库 <a href="https://lodash.com" target="_blank" rel="noopener noreferrer">lodash<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a> 中的 <a href="https://lodash.com/docs#cloneDeep" target="_blank" rel="noopener noreferrer">_.cloneDeep(obj)<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a>。</p> <h2 id="总结"><a href="#总结" class="header-anchor">#</a> 总结</h2> <p>对象通过引用被赋值和拷贝。换句话说，一个变量存储的不是“对象的值”，而是一个对值的“引用”（内存地址）。因此，拷贝此类变量或将其作为函数参数传递时，所拷贝的是引用，而不是对象本身。</p> <p>所有通过被拷贝的引用的操作（如添加、删除属性）都作用在同一个对象上。</p> <p>为了创建“真正的拷贝”（一个克隆），我们可以使用 <code>Object.assign</code> 来做所谓的“浅拷贝”（嵌套对象被通过引用进行拷贝）或者使用“深拷贝”函数，例如 <a href="https://lodash.com/docs#cloneDeep" target="_blank" rel="noopener noreferrer">_.cloneDeep(obj)<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a>。</p></div> <footer class="page-edit"><div class="edit-link"><a href="https://github.com/wangyan/vuepress-javascript/edit/develop/docs/1-js/04-object-basics/02-object-copy/article.md" target="_blank" rel="noopener noreferrer">在 GitHub 上编辑</a> <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></div> <div class="last-updated"><span class="prefix">最后更新时间:</span> <span class="time">2021/6/29 下午11:12:53</span></div></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ⟵
+      <a href="/object/" class="prev">
+        4.1. 对象
+      </a></span> <span class="next"><a href="/garbage-collection/">
+        4.3. 垃圾回收
+      </a>
+      ⟶
+    </span></p></div> </main></div><div class="global-ui"><div style="visibility:hidden;display:none;"></div><!----><!----></div></div>
+    <script src="/assets/js/app.83f5da50.js" defer></script><script src="/assets/js/2.741d139e.js" defer></script><script src="/assets/js/8.898da7ef.js" defer></script><script src="/assets/js/20.2b87c008.js" defer></script>
+  </body>
+</html>

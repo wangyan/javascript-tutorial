@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>变量 | 现代 JavaScript 教程</title>
+    <meta name="generator" content="VuePress 1.8.2">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="icon" type="image/png" sizes="36x36" href="/icons/icon-ldpi-36x36.png">
+    <link rel="apple-touch-icon" type="image/png" sizes="36x36" href="/icons/icon-ldpi-36x36.png">
+    <link rel="icon" sizes="48x48" href="/icons/icon-mdpi-48x48.png">
+    <link rel="apple-touch-icon" sizes="48x48" href="/icons/icon-mdpi-48x48.png">
+    <link rel="icon" sizes="72x72" href="/icons/icon-hdpi-72x72.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/icons/icon-hdpi-72x72.png">
+    <link rel="icon" sizes="96x96" href="/icons/icon-xhdpi-96x96.png">
+    <link rel="apple-touch-icon" sizes="96x96" href="/icons/icon-xhdpi-96x96.png">
+    <link rel="icon" sizes="144x144" href="/icons/icon-xxhdpi-144x144.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/icons/icon-xxhdpi-144x144.png">
+    <link rel="icon" sizes="192x192" href="/icons/icon-xxxhdpi-192x192.png">
+    <link rel="apple-touch-icon" sizes="192x192" href="/icons/icon-xxxhdpi-192x192.png">
+    <link rel="icon" sizes="512x512" href="/icons/icon-72dpi-512x512.png">
+    <link rel="apple-touch-icon" sizes="512x512" href="/icons/icon-72dpi-512x512.png">
+    <link rel="icon" sizes="1024x1024" href="/icons/icon-144dpi-1024x1024.png">
+    <link rel="apple-touch-icon" sizes="1024x1024" href="/icons/icon-144dpi-1024x1024.png">
+    <meta name="description" content="以最新的 JavaScript 标准为基准。通过简单但足够详细的内容，为你讲解从基础到高阶的 JavaScript 相关知识。">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="application-name" content="现代 JavaScript 教程">
+    <meta name="apple-mobile-web-app-title" content="现代 JavaScript 教程">
+    <meta name="theme-color" content="#fff">
+    <meta name="msapplication-navbutton-color" content="#fff">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="msapplication-starturl" content="index.html">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <link rel="preload" href="/assets/css/0.styles.d0e1634f.css" as="style"><link rel="preload" href="/assets/js/app.83f5da50.js" as="script"><link rel="preload" href="/assets/js/2.741d139e.js" as="script"><link rel="preload" href="/assets/js/15.37f20174.js" as="script"><link rel="preload" href="/assets/js/20.2b87c008.js" as="script"><link rel="prefetch" href="/assets/js/10.9650b6ca.js"><link rel="prefetch" href="/assets/js/11.1c6d6528.js"><link rel="prefetch" href="/assets/js/12.43731225.js"><link rel="prefetch" href="/assets/js/13.59881730.js"><link rel="prefetch" href="/assets/js/14.341aa408.js"><link rel="prefetch" href="/assets/js/16.e65623b0.js"><link rel="prefetch" href="/assets/js/17.525277bd.js"><link rel="prefetch" href="/assets/js/18.7e5fe6b0.js"><link rel="prefetch" href="/assets/js/19.8a423a32.js"><link rel="prefetch" href="/assets/js/21.35925ffe.js"><link rel="prefetch" href="/assets/js/22.7220c015.js"><link rel="prefetch" href="/assets/js/23.f91fed20.js"><link rel="prefetch" href="/assets/js/24.f55fca3f.js"><link rel="prefetch" href="/assets/js/25.ab318aa9.js"><link rel="prefetch" href="/assets/js/26.2515724b.js"><link rel="prefetch" href="/assets/js/27.2d48422d.js"><link rel="prefetch" href="/assets/js/28.bf73e5a5.js"><link rel="prefetch" href="/assets/js/29.7add7094.js"><link rel="prefetch" href="/assets/js/3.63868dc5.js"><link rel="prefetch" href="/assets/js/30.f16b582f.js"><link rel="prefetch" href="/assets/js/31.1cbe3b01.js"><link rel="prefetch" href="/assets/js/32.49ad9f58.js"><link rel="prefetch" href="/assets/js/33.831966e9.js"><link rel="prefetch" href="/assets/js/34.c3cecff7.js"><link rel="prefetch" href="/assets/js/35.d60a17a1.js"><link rel="prefetch" href="/assets/js/36.6a6802c9.js"><link rel="prefetch" href="/assets/js/37.aaf3f6a6.js"><link rel="prefetch" href="/assets/js/38.11598708.js"><link rel="prefetch" href="/assets/js/39.8a3cbf96.js"><link rel="prefetch" href="/assets/js/4.471c379b.js"><link rel="prefetch" href="/assets/js/40.146fd1a9.js"><link rel="prefetch" href="/assets/js/41.2caf8da3.js"><link rel="prefetch" href="/assets/js/42.583d4934.js"><link rel="prefetch" href="/assets/js/43.39c6c351.js"><link rel="prefetch" href="/assets/js/44.fdd6dece.js"><link rel="prefetch" href="/assets/js/45.3e97a42c.js"><link rel="prefetch" href="/assets/js/46.8da318e6.js"><link rel="prefetch" href="/assets/js/47.e8cce718.js"><link rel="prefetch" href="/assets/js/48.e29e5227.js"><link rel="prefetch" href="/assets/js/49.a53d3ef6.js"><link rel="prefetch" href="/assets/js/5.e81fb6e4.js"><link rel="prefetch" href="/assets/js/50.ff4d9108.js"><link rel="prefetch" href="/assets/js/51.87e52449.js"><link rel="prefetch" href="/assets/js/52.6b5fe7f7.js"><link rel="prefetch" href="/assets/js/53.f3afeef2.js"><link rel="prefetch" href="/assets/js/54.5569b62a.js"><link rel="prefetch" href="/assets/js/55.2e2222fd.js"><link rel="prefetch" href="/assets/js/56.2680f090.js"><link rel="prefetch" href="/assets/js/57.5df03027.js"><link rel="prefetch" href="/assets/js/58.fd022198.js"><link rel="prefetch" href="/assets/js/59.cdac29d4.js"><link rel="prefetch" href="/assets/js/6.49d91683.js"><link rel="prefetch" href="/assets/js/60.8d56ce67.js"><link rel="prefetch" href="/assets/js/61.025320dd.js"><link rel="prefetch" href="/assets/js/62.6d59a313.js"><link rel="prefetch" href="/assets/js/63.3f382f49.js"><link rel="prefetch" href="/assets/js/64.031ae36b.js"><link rel="prefetch" href="/assets/js/65.65cab595.js"><link rel="prefetch" href="/assets/js/66.c110100c.js"><link rel="prefetch" href="/assets/js/67.cdcedc8b.js"><link rel="prefetch" href="/assets/js/7.84920acb.js"><link rel="prefetch" href="/assets/js/8.898da7ef.js"><link rel="prefetch" href="/assets/js/9.06ec3991.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.d0e1634f.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">现代 JavaScript 教程</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link">
+  首页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="基础" class="dropdown-title"><span class="title">基础</span> <span class="arrow down"></span></button> <button type="button" aria-label="基础" class="mobile-dropdown-title"><span class="title">基础</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/getting-started/" class="nav-link">
+  An introduction
+</a></li><li class="dropdown-item"><!----> <a href="/first-steps/" class="nav-link">
+  JavaScript Fundamentals
+</a></li><li class="dropdown-item"><!----> <a href="/code-quality/" class="nav-link">
+  Code quality
+</a></li><li class="dropdown-item"><!----> <a href="/object-basics/" class="nav-link">
+  Objects: the basics
+</a></li><li class="dropdown-item"><!----> <a href="/data-types/" class="nav-link">
+  Data types
+</a></li><li class="dropdown-item"><!----> <a href="/advanced-functions/" class="nav-link">
+  Advanced working with functions
+</a></li><li class="dropdown-item"><!----> <a href="/object-properties/" class="nav-link">
+  Object properties configuration
+</a></li><li class="dropdown-item"><!----> <a href="/prototypes/" class="nav-link">
+  Prototypes, inheritance
+</a></li><li class="dropdown-item"><!----> <a href="/classes/" class="nav-link">
+  Classes
+</a></li><li class="dropdown-item"><!----> <a href="/error-handling/" class="nav-link">
+  Error handling
+</a></li><li class="dropdown-item"><!----> <a href="/async/" class="nav-link">
+  Promises, async/await
+</a></li><li class="dropdown-item"><!----> <a href="/generators-iterators/" class="nav-link">
+  Generators, advanced iteration
+</a></li><li class="dropdown-item"><!----> <a href="/modules/" class="nav-link">
+  Modules
+</a></li><li class="dropdown-item"><!----> <a href="/js-misc/" class="nav-link">
+  Miscellaneous
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="进阶" class="dropdown-title"><span class="title">进阶</span> <span class="arrow down"></span></button> <button type="button" aria-label="进阶" class="mobile-dropdown-title"><span class="title">进阶</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/document/" class="nav-link">
+  Document
+</a></li><li class="dropdown-item"><!----> <a href="/events/" class="nav-link">
+  Introduction to Events
+</a></li><li class="dropdown-item"><!----> <a href="/event-details/" class="nav-link">
+  UI Events
+</a></li><li class="dropdown-item"><!----> <a href="/forms-controls/" class="nav-link">
+  Forms, controls
+</a></li><li class="dropdown-item"><!----> <a href="/loading/" class="nav-link">
+  Document and resource loading
+</a></li><li class="dropdown-item"><!----> <a href="/ui-misc/" class="nav-link">
+  Miscellaneous
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="专题" class="dropdown-title"><span class="title">专题</span> <span class="arrow down"></span></button> <button type="button" aria-label="专题" class="mobile-dropdown-title"><span class="title">专题</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/frames-and-windows/" class="nav-link">
+  Frames and windows
+</a></li><li class="dropdown-item"><!----> <a href="/binary/" class="nav-link">
+  Binary data, files
+</a></li><li class="dropdown-item"><!----> <a href="/network/" class="nav-link">
+  Network requests
+</a></li><li class="dropdown-item"><!----> <a href="/data-storage/" class="nav-link">
+  Storing data in the browser
+</a></li><li class="dropdown-item"><!----> <a href="/animation/" class="nav-link">
+  Animation
+</a></li><li class="dropdown-item"><!----> <a href="/web-components/" class="nav-link">
+  Web components
+</a></li><li class="dropdown-item"><!----> <a href="/regular-expressions/" class="nav-link">
+  Regular expressions
+</a></li></ul></div></div> <div class="nav-item"><a role="button" aria-label="Switch to light mode" class="nav-link"><span>Switch theme</span></a></div> <a href="https://github.com/wangyan/javascript-tutorial" target="_blank" rel="noopener noreferrer" class="repo-link">
+    查看源码
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link">
+  首页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="基础" class="dropdown-title"><span class="title">基础</span> <span class="arrow down"></span></button> <button type="button" aria-label="基础" class="mobile-dropdown-title"><span class="title">基础</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/getting-started/" class="nav-link">
+  An introduction
+</a></li><li class="dropdown-item"><!----> <a href="/first-steps/" class="nav-link">
+  JavaScript Fundamentals
+</a></li><li class="dropdown-item"><!----> <a href="/code-quality/" class="nav-link">
+  Code quality
+</a></li><li class="dropdown-item"><!----> <a href="/object-basics/" class="nav-link">
+  Objects: the basics
+</a></li><li class="dropdown-item"><!----> <a href="/data-types/" class="nav-link">
+  Data types
+</a></li><li class="dropdown-item"><!----> <a href="/advanced-functions/" class="nav-link">
+  Advanced working with functions
+</a></li><li class="dropdown-item"><!----> <a href="/object-properties/" class="nav-link">
+  Object properties configuration
+</a></li><li class="dropdown-item"><!----> <a href="/prototypes/" class="nav-link">
+  Prototypes, inheritance
+</a></li><li class="dropdown-item"><!----> <a href="/classes/" class="nav-link">
+  Classes
+</a></li><li class="dropdown-item"><!----> <a href="/error-handling/" class="nav-link">
+  Error handling
+</a></li><li class="dropdown-item"><!----> <a href="/async/" class="nav-link">
+  Promises, async/await
+</a></li><li class="dropdown-item"><!----> <a href="/generators-iterators/" class="nav-link">
+  Generators, advanced iteration
+</a></li><li class="dropdown-item"><!----> <a href="/modules/" class="nav-link">
+  Modules
+</a></li><li class="dropdown-item"><!----> <a href="/js-misc/" class="nav-link">
+  Miscellaneous
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="进阶" class="dropdown-title"><span class="title">进阶</span> <span class="arrow down"></span></button> <button type="button" aria-label="进阶" class="mobile-dropdown-title"><span class="title">进阶</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/document/" class="nav-link">
+  Document
+</a></li><li class="dropdown-item"><!----> <a href="/events/" class="nav-link">
+  Introduction to Events
+</a></li><li class="dropdown-item"><!----> <a href="/event-details/" class="nav-link">
+  UI Events
+</a></li><li class="dropdown-item"><!----> <a href="/forms-controls/" class="nav-link">
+  Forms, controls
+</a></li><li class="dropdown-item"><!----> <a href="/loading/" class="nav-link">
+  Document and resource loading
+</a></li><li class="dropdown-item"><!----> <a href="/ui-misc/" class="nav-link">
+  Miscellaneous
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="专题" class="dropdown-title"><span class="title">专题</span> <span class="arrow down"></span></button> <button type="button" aria-label="专题" class="mobile-dropdown-title"><span class="title">专题</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/frames-and-windows/" class="nav-link">
+  Frames and windows
+</a></li><li class="dropdown-item"><!----> <a href="/binary/" class="nav-link">
+  Binary data, files
+</a></li><li class="dropdown-item"><!----> <a href="/network/" class="nav-link">
+  Network requests
+</a></li><li class="dropdown-item"><!----> <a href="/data-storage/" class="nav-link">
+  Storing data in the browser
+</a></li><li class="dropdown-item"><!----> <a href="/animation/" class="nav-link">
+  Animation
+</a></li><li class="dropdown-item"><!----> <a href="/web-components/" class="nav-link">
+  Web components
+</a></li><li class="dropdown-item"><!----> <a href="/regular-expressions/" class="nav-link">
+  Regular expressions
+</a></li></ul></div></div> <div class="nav-item"><a role="button" aria-label="Switch to light mode" class="nav-link"><span>Switch theme</span></a></div> <a href="https://github.com/wangyan/javascript-tutorial" target="_blank" rel="noopener noreferrer" class="repo-link">
+    查看源码
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><a href="/1-js/01-getting-started/" class="sidebar-heading clickable"><span>第 1 节：简介</span> <!----></a> <ul class="sidebar-links sidebar-group-items"><li><a href="/intro/" class="sidebar-link">1.1. JavaScript 简介</a></li><li><a href="/manuals-specifications/" class="sidebar-link">1.2. 手册与规范</a></li><li><a href="/code-editors/" class="sidebar-link">1.3. 代码编辑器</a></li><li><a href="/devtools/" class="sidebar-link">1.4. 开发者控制台</a></li></ul></section></li><li><section class="sidebar-group depth-0"><a href="/1-js/02-first-steps/" class="sidebar-heading clickable open"><span>第 2 节：JavaScript 基础知识</span> <!----></a> <ul class="sidebar-links sidebar-group-items"><li><a href="/hello-world/" class="sidebar-link">2.1. Hello, world!</a></li><li><a href="/structure/" class="sidebar-link">2.2. 代码结构</a></li><li><a href="/strict-mode/" class="sidebar-link">2.3. 现代模式，&quot;use strict&quot;</a></li><li><a href="/variables/" aria-current="page" class="active sidebar-link">2.4. 变量</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/variables/#变量-2" class="sidebar-link">变量</a></li><li class="sidebar-sub-header"><a href="/variables/#一个现实生活的类比" class="sidebar-link">一个现实生活的类比</a></li><li class="sidebar-sub-header"><a href="/variables/#变量命名" class="sidebar-link">变量命名</a></li><li class="sidebar-sub-header"><a href="/variables/#常量" class="sidebar-link">常量</a></li><li class="sidebar-sub-header"><a href="/variables/#正确命名变量" class="sidebar-link">正确命名变量</a></li><li class="sidebar-sub-header"><a href="/variables/#总结" class="sidebar-link">总结</a></li><li class="sidebar-sub-header"><a href="/variables/#任务" class="sidebar-link">任务</a></li></ul></li><li><a href="/types/" class="sidebar-link">2.5. 数据类型</a></li><li><a href="/alert-prompt-confirm/" class="sidebar-link">2.6. 交互：alert、prompt、confirm</a></li><li><a href="/type-conversions/" class="sidebar-link">2.7. 类型转换</a></li><li><a href="/operators/" class="sidebar-link">2.8. 运算符</a></li><li><a href="/comparison/" class="sidebar-link">2.9. 值的比较</a></li><li><a href="/ifelse/" class="sidebar-link">2.10. 条件运算符：if、?</a></li><li><a href="/logical-operators/" class="sidebar-link">2.11. 逻辑运算符</a></li><li><a href="/nullish-coalescing-operator/" class="sidebar-link">2.12. 空值合并运算符&quot;??&quot;</a></li><li><a href="/while-for/" class="sidebar-link">2.13. 循环：while 和 for</a></li><li><a href="/switch/" class="sidebar-link">2.14. &quot;switch&quot; 语句</a></li><li><a href="/function-basics/" class="sidebar-link">2.15. 函数</a></li><li><a href="/function-expressions/" class="sidebar-link">2.16. 函数表达式</a></li><li><a href="/arrow-functions-basics/" class="sidebar-link">2.17. 箭头函数，基础知识</a></li><li><a href="/javascript-specials/" class="sidebar-link">2.18. JavasScript 特性</a></li></ul></section></li><li><section class="sidebar-group depth-0"><a href="/1-js/03-code-quality/" class="sidebar-heading clickable"><span>第 3 节：代码质量</span> <!----></a> <ul class="sidebar-links sidebar-group-items"><li><a href="/debugging-chrome/" class="sidebar-link">3.1. 在 Chrome 中调试</a></li><li><a href="/coding-style/" class="sidebar-link">3.2. 代码风格</a></li><li><a href="/comments/" class="sidebar-link">3.3. 注释</a></li><li><a href="/ninja-code/" class="sidebar-link">3.4. 忍者代码</a></li><li><a href="/testing-mocha/" class="sidebar-link">3.5. 使用 mocha 进行自动化测试</a></li><li><a href="/polyfills/" class="sidebar-link">3.6. Polyfills</a></li></ul></section></li><li><section class="sidebar-group depth-0"><a href="/1-js/04-object-basics/" class="sidebar-heading clickable"><span>第 4 节：Object 基础知识</span> <!----></a> <ul class="sidebar-links sidebar-group-items"><li><a href="/object/" class="sidebar-link">4.1. 对象</a></li><li><a href="/object-copy/" class="sidebar-link">4.2. 对象引用和复制</a></li><li><a href="/garbage-collection/" class="sidebar-link">4.3. 垃圾回收</a></li><li><a href="/object-methods/" class="sidebar-link">4.4. 对象方法，&quot;this&quot;</a></li><li><a href="/constructor-new/" class="sidebar-link">4.5. 构造器和操作符 &quot;new&quot;</a></li><li><a href="/optional-chaining/" class="sidebar-link">4.6. 可选链 &quot;?.&quot;</a></li><li><a href="/symbol/" class="sidebar-link">4.7. Symbol 类型</a></li><li><a href="/object-toprimitive/" class="sidebar-link">4.8. 对象 — 原始值转换</a></li></ul></section></li><li><section class="sidebar-group depth-0"><a href="/1-js/05-data-types/" class="sidebar-heading clickable"><span>第 5 节：数据类型</span> <!----></a> <ul class="sidebar-links sidebar-group-items"><li><a href="/primitives-methods/" class="sidebar-link">5.1. 原始类型的方法</a></li><li><a href="/number/" class="sidebar-link">5.2. 数字类型</a></li><li><a href="/string/" class="sidebar-link">5.3. 字符串</a></li><li><a href="/1-js/05-data-types/04-array/article.html" class="sidebar-link">5.4. 数组</a></li><li><a href="/1-js/05-data-types/05-array-methods/article.html" class="sidebar-link">5.5. 数组方法</a></li><li><a href="/1-js/05-data-types/06-iterable/article.html" class="sidebar-link">5.6. 可迭代对象</a></li><li><a href="/1-js/05-data-types/07-map-set/article.html" class="sidebar-link">5.7. 映射和集合</a></li><li><a href="/1-js/05-data-types/08-weakmap-weakset/article.html" class="sidebar-link">5.8. 弱映射和弱集合</a></li><li><a href="/1-js/05-data-types/09-keys-values-entries/article.html" class="sidebar-link">5.9. Object.keys，values，entries</a></li><li><a href="/1-js/05-data-types/10-destructuring-assignment/article.html" class="sidebar-link">5.10. 解构赋值</a></li><li><a href="/1-js/05-data-types/11-date/article.html" class="sidebar-link">5.11. 日期和时间</a></li><li><a href="/1-js/05-data-types/12-json/article.html" class="sidebar-link">5.12. JSON 方法，toJSON</a></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-succinct-content content__default"><h1 id="变量"><a href="#变量" class="header-anchor">#</a> 变量</h1> <p>大多数情况下，JavaScript 应用需要处理信息。这有两个例子：</p> <ol><li>一个网上商店 —— 这里的信息可能包含正在售卖的商品和购物车。</li> <li>一个聊天应用 —— 这里的信息可能包括用户和消息等等。</li></ol> <p>变量就是用来储存这些信息的。</p> <h2 id="变量-2"><a href="#变量-2" class="header-anchor">#</a> 变量</h2> <p><a href="https://en.wikipedia.org/wiki/Variable_(computer_science)" target="_blank" rel="noopener noreferrer">变量<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a> 是数据的“命名存储”。我们可以使用变量来保存商品、访客和其他信息。</p> <p>在 JavaScript 中创建一个变量，我们需要用到 <code>let</code> 关键字。</p> <p>下面的语句创建（也可以称为 <strong>声明</strong> 或者 <strong>定义</strong>）了一个名称为 “message” 的变量：</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">let</span> message<span class="token punctuation">;</span>
+</code></pre></div><p>现在，我们可以通过赋值运算符 <code>=</code> 为变量添加一些数据：</p> <div class="language-js extra-class"><div class="highlight-lines"><br><br><div class="highlighted"> </div><br></div><pre class="language-js"><code><span class="token keyword">let</span> message<span class="token punctuation">;</span>
+
+message <span class="token operator">=</span> <span class="token string">'Hello'</span><span class="token punctuation">;</span> <span class="token comment">// 保存字符串</span>
+</code></pre></div><p>现在这个字符串已经保存到与该变量相关联的内存区域了，我们可以通过使用该变量名称访问它：</p> <div class="language-js extra-class"><div class="highlight-lines"><br><br><br><div class="highlighted"> </div><br></div><pre class="language-js"><code><span class="token keyword">let</span> message<span class="token punctuation">;</span>
+message <span class="token operator">=</span> <span class="token string">'Hello!'</span><span class="token punctuation">;</span>
+
+<span class="token function">alert</span><span class="token punctuation">(</span>message<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 显示变量内容</span>
+</code></pre></div><p>简洁一点，我们可以将变量定义和赋值合并成一行：</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">let</span> message <span class="token operator">=</span> <span class="token string">'Hello!'</span><span class="token punctuation">;</span> <span class="token comment">// 定义变量，并且赋值</span>
+
+<span class="token function">alert</span><span class="token punctuation">(</span>message<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// Hello!</span>
+</code></pre></div><p>也可以在一行中声明多个变量：</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">let</span> user <span class="token operator">=</span> <span class="token string">'John'</span><span class="token punctuation">,</span> age <span class="token operator">=</span> <span class="token number">25</span><span class="token punctuation">,</span> message <span class="token operator">=</span> <span class="token string">'Hello'</span><span class="token punctuation">;</span>
+</code></pre></div><p>看上去代码长度更短，但并不推荐这样。为了更好的可读性，请一行只声明一个变量。</p> <p>多行变量声明有点长，但更容易阅读：</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">let</span> user <span class="token operator">=</span> <span class="token string">'John'</span><span class="token punctuation">;</span>
+<span class="token keyword">let</span> age <span class="token operator">=</span> <span class="token number">25</span><span class="token punctuation">;</span>
+<span class="token keyword">let</span> message <span class="token operator">=</span> <span class="token string">'Hello'</span><span class="token punctuation">;</span>
+</code></pre></div><p>一些程序员采用下面的形式书写多个变量：</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">let</span> user <span class="token operator">=</span> <span class="token string">'John'</span><span class="token punctuation">,</span>
+  age <span class="token operator">=</span> <span class="token number">25</span><span class="token punctuation">,</span>
+  message <span class="token operator">=</span> <span class="token string">'Hello'</span><span class="token punctuation">;</span>
+</code></pre></div><p>……甚至使用“逗号在前”的形式：</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">let</span> user <span class="token operator">=</span> <span class="token string">'John'</span>
+  <span class="token punctuation">,</span> age <span class="token operator">=</span> <span class="token number">25</span>
+  <span class="token punctuation">,</span> message <span class="token operator">=</span> <span class="token string">'Hello'</span><span class="token punctuation">;</span>
+</code></pre></div><p>技术上讲，这些变体都有一样的效果。所以，这是个个人品味和审美方面的问题。</p> <div class="custom-block tip"><p class="custom-block-title">是 var 而不是 let</p> <p>在较旧的脚本中，你也可能发现另一个关键字 <code>var</code>，而不是 <code>let</code>：</p> <div class="language-js extra-class"><div class="highlight-lines"><div class="highlighted"> </div><br></div><pre class="language-js"><code><span class="token keyword">var</span> message <span class="token operator">=</span> <span class="token string">'Hello'</span><span class="token punctuation">;</span>
+</code></pre></div><p><code>var</code> 关键字与 <code>let</code> <strong>大体</strong> 相同，也用来声明变量，但稍微有些不同，也有点“老派”。</p> <p><code>let</code> 和 <code>var</code> 之间有些微妙的差别，但目前对于我们来说并不重要。我们将会在 <a href="/var">var</a> 章节中介绍它们。</p></div> <h2 id="一个现实生活的类比"><a href="#一个现实生活的类比" class="header-anchor">#</a> 一个现实生活的类比</h2> <p>如果将变量想象成一个“数据”的盒子，盒子上有一个唯一的标注盒子名字的贴纸。这样我们能更轻松地掌握“变量”的概念。</p> <p>例如，变量 <code>message</code> 可以被想象成一个标有 <code>&quot;message&quot;</code> 的盒子，盒子里面的值为 <code>&quot;Hello!&quot;</code>：</p> <p><img src="/assets/img/variable.d53d931f.svg" alt=""></p> <p>我们可以在盒子内放入任何值。</p> <p>并且，这个盒子的值，我们想改变多少次，就可以改变多少次：</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">let</span> message<span class="token punctuation">;</span>
+
+message <span class="token operator">=</span> <span class="token string">'Hello!'</span><span class="token punctuation">;</span>
+
+message <span class="token operator">=</span> <span class="token string">'World!'</span><span class="token punctuation">;</span> <span class="token comment">// 值改变了</span>
+
+<span class="token function">alert</span><span class="token punctuation">(</span>message<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><p>当值改变的时候，之前的数据就被从变量中删除了：</p> <p><img src="/assets/img/variable-change.0c77cefc.svg" alt=""></p> <p>我们还可以声明两个变量，然后将其中一个变量的数据拷贝到另一个变量。</p> <div class="language-js extra-class"><div class="highlight-lines"><br><br><br><br><br><div class="highlighted"> </div><br><br><br><br><br></div><pre class="language-js"><code><span class="token keyword">let</span> hello <span class="token operator">=</span> <span class="token string">'Hello world!'</span><span class="token punctuation">;</span>
+
+<span class="token keyword">let</span> message<span class="token punctuation">;</span>
+
+<span class="token comment">// 将字符串 'Hello world' 从变量 hello 拷贝到 message</span>
+message <span class="token operator">=</span> hello<span class="token punctuation">;</span>
+
+<span class="token comment">// 现在两个变量保存着相同的数据</span>
+<span class="token function">alert</span><span class="token punctuation">(</span>hello<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// Hello world!</span>
+<span class="token function">alert</span><span class="token punctuation">(</span>message<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// Hello world!</span>
+</code></pre></div><div class="custom-block warning"><p class="custom-block-title">声明两次会触发 error</p> <p>一个变量应该只被声明一次。</p> <p>对同一个变量进行重复声明会触发 error：</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">let</span> message <span class="token operator">=</span> <span class="token string">&quot;This&quot;</span><span class="token punctuation">;</span>
+
+<span class="token comment">// 重复 'let' 会导致 error</span>
+<span class="token keyword">let</span> message <span class="token operator">=</span> <span class="token string">&quot;That&quot;</span><span class="token punctuation">;</span> <span class="token comment">// SyntaxError: 'message' has already been declared</span>
+</code></pre></div><p>因此，我们对同一个变量应该只声明一次，之后在不使用 <code>let</code> 的情况下对其进行引用。</p></div> <div class="custom-block tip"><p class="custom-block-title">函数式语言</p> <p>有趣的是，也存在禁止更改变量值的 <a href="https://en.wikipedia.org/wiki/Functional_programming" target="_blank" rel="noopener noreferrer">函数式<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a> 编程语言。比如 <a href="http://www.scala-lang.org/" target="_blank" rel="noopener noreferrer">Scala<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a> 或 <a href="http://www.erlang.org/" target="_blank" rel="noopener noreferrer">Erlang<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a>。</p> <p>在这种类型的语言中，一旦值保存在盒子中，就永远存在。如果你试图保存其他值，它会强制创建一个新盒子（声明一个新变量），无法重用之前的变量。</p> <p>虽然第一次看上去有点奇怪，但是这些语言有很大的发展潜力。不仅如此，在某些领域，比如并行计算，这个限制有一定的好处。研究这样的一门语言（即使不打算很快就用上它）有助于开阔视野。</p></div> <h2 id="变量命名"><a href="#变量命名" class="header-anchor">#</a> 变量命名</h2> <p>JavaScript 的变量命名有两个限制：</p> <ol><li>变量名称必须仅包含字母，数字，符号 <code>$</code> 和 <code>_</code>。</li> <li>首字符必须非数字。</li></ol> <p>有效的命名，例如：</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">let</span> userName<span class="token punctuation">;</span>
+<span class="token keyword">let</span> test123<span class="token punctuation">;</span>
+</code></pre></div><p>如果命名包括多个单词，通常采用驼峰式命名法（<a href="https://en.wikipedia.org/wiki/CamelCase" target="_blank" rel="noopener noreferrer">camelCase<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a>）。也就是，单词一个接一个，除了第一个单词，其他的每个单词都以大写字母开头：<code>myVeryLongName</code>。</p> <p>有趣的是，美元符号 <code>'$'</code> 和下划线 <code>'_'</code> 也可以用于变量命名。它们是正常的符号，就跟字母一样，没有任何特殊的含义。</p> <p>下面的命名是有效的：</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">let</span> $ <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span> <span class="token comment">// 使用 &quot;$&quot; 声明一个变量</span>
+<span class="token keyword">let</span> _ <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">;</span> <span class="token comment">// 现在用 &quot;_&quot; 声明一个变量</span>
+
+<span class="token function">alert</span><span class="token punctuation">(</span>$ <span class="token operator">+</span> _<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 3</span>
+</code></pre></div><p>下面的变量命名不正确：</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">let</span> <span class="token number">1</span>a<span class="token punctuation">;</span> <span class="token comment">// 不能以数字开始</span>
+
+<span class="token keyword">let</span> my<span class="token operator">-</span>name<span class="token punctuation">;</span> <span class="token comment">// 连字符 '-' 不允许用于变量命名</span>
+</code></pre></div><div class="custom-block tip"><p class="custom-block-title">区分大小写</p> <p>命名为 <code>apple</code> 和 <code>AppLE</code> 的变量是不同的两个变量。</p></div> <div class="custom-block tip"><p class="custom-block-title">允许非英文字母，但不推荐</p> <p>可以使用任何语言，包括西里尔字母（cyrillic letters）甚至是象形文字，就像这样：</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">let</span> имя <span class="token operator">=</span> <span class="token string">'...'</span><span class="token punctuation">;</span>
+<span class="token keyword">let</span> 我 <span class="token operator">=</span> <span class="token string">'...'</span><span class="token punctuation">;</span>
+</code></pre></div><p>从技术上讲，这样没问题。这样的命名是完全允许的，但是用英文进行变量命名是国际惯例。哪怕我们正在写一个很小的脚本，它也有可能会被使用很久。某个时候，来自其他国家的人可能会需要阅读它。</p></div> <div class="custom-block warning"><p class="custom-block-title">保留字</p> <p>有一张 <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Lexical_grammar#Keywords" target="_blank" rel="noopener noreferrer">保留字列表<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a>，这张表中的保留字无法用作变量命名，因为它们被用于编程语言本身了。</p> <p>比如，<code>let</code>、<code>class</code>、<code>return</code>、<code>function</code> 都被保留了。</p> <p>下面的代码将会抛出一个语法错误：</p> <div class="language-js no-beautify extra-class"><pre class="language-js"><code><span class="token keyword">let</span> <span class="token keyword">let</span> <span class="token operator">=</span> <span class="token number">5</span><span class="token punctuation">;</span> <span class="token comment">// 不能用 &quot;let&quot; 来命名一个变量，错误！</span>
+<span class="token keyword">let</span> <span class="token keyword">return</span> <span class="token operator">=</span> <span class="token number">5</span><span class="token punctuation">;</span> <span class="token comment">// 同样，不能使用 &quot;return&quot;，错误！</span>
+</code></pre></div></div> <div class="custom-block warning"><p class="custom-block-title">未采用 use strict 下的赋值</p> <p>一般，我们需要在使用一个变量前定义它。但是在早期，我们可以不使用 <code>let</code> 进行变量声明，而可以简单地通过赋值来创建一个变量。现在如果我们不在脚本中使用 <code>use strict</code> 声明启用严格模式，这仍然可以正常工作，这是为了保持对旧脚本的兼容。</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// 注意：这个例子中没有 &quot;use strict&quot;</span>
+
+num <span class="token operator">=</span> <span class="token number">5</span><span class="token punctuation">;</span> <span class="token comment">// 如果变量 &quot;num&quot; 不存在，就会被创建</span>
+
+<span class="token function">alert</span><span class="token punctuation">(</span>num<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 5</span>
+</code></pre></div><p>上面这是个糟糕的做法，严格模式下会报错。</p> <div class="language-js extra-class"><div class="highlight-lines"><br><br><div class="highlighted"> </div><br></div><pre class="language-js"><code><span class="token string">&quot;use strict&quot;</span><span class="token punctuation">;</span>
+
+num <span class="token operator">=</span> <span class="token number">5</span><span class="token punctuation">;</span> <span class="token comment">// 错误：num 未定义</span>
+</code></pre></div></div> <h2 id="常量"><a href="#常量" class="header-anchor">#</a> 常量</h2> <p>声明一个常数（不变）变量，可以使用 <code>const</code> 而非 <code>let</code>：</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">const</span> myBirthday <span class="token operator">=</span> <span class="token string">'18.04.1982'</span><span class="token punctuation">;</span>
+</code></pre></div><p>使用 <code>const</code> 声明的变量称为“常量”。它们不能被修改，如果你尝试修改就会发现报错：</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">const</span> myBirthday <span class="token operator">=</span> <span class="token string">'18.04.1982'</span><span class="token punctuation">;</span>
+
+myBirthday <span class="token operator">=</span> <span class="token string">'01.01.2001'</span><span class="token punctuation">;</span> <span class="token comment">// 错误，不能对常量重新赋值</span>
+</code></pre></div><p>当程序员能确定这个变量永远不会改变的时候，就可以使用 <code>const</code> 来确保这种行为，并且清楚地向别人传递这一事实。</p> <h3 id="大写形式的常数"><a href="#大写形式的常数" class="header-anchor">#</a> 大写形式的常数</h3> <p>一个普遍的做法是将常量用作别名，以便记住那些在执行之前就已知的难以记住的值。</p> <p>使用大写字母和下划线来命名这些常量。</p> <p>例如，让我们以所谓的“web”（十六进制）格式为颜色声明常量：</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">const</span> <span class="token constant">COLOR_RED</span> <span class="token operator">=</span> <span class="token string">&quot;#F00&quot;</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> <span class="token constant">COLOR_GREEN</span> <span class="token operator">=</span> <span class="token string">&quot;#0F0&quot;</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> <span class="token constant">COLOR_BLUE</span> <span class="token operator">=</span> <span class="token string">&quot;#00F&quot;</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> <span class="token constant">COLOR_ORANGE</span> <span class="token operator">=</span> <span class="token string">&quot;#FF7F00&quot;</span><span class="token punctuation">;</span>
+
+<span class="token comment">// ……当我们需要选择一个颜色</span>
+<span class="token keyword">let</span> color <span class="token operator">=</span> <span class="token constant">COLOR_ORANGE</span><span class="token punctuation">;</span>
+<span class="token function">alert</span><span class="token punctuation">(</span>color<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// #FF7F00</span>
+</code></pre></div><p>好处：</p> <ul><li><code>COLOR_ORANGE</code> 比 <code>&quot;#FF7F00&quot;</code> 更容易记忆。</li> <li>比起 <code>COLOR_ORANGE</code> 而言，<code>&quot;#FF7F00&quot;</code> 更容易输错。</li> <li>阅读代码时，<code>COLOR_ORANGE</code> 比 <code>#FF7F00</code> 更易懂。</li></ul> <p>什么时候该为常量使用大写命名，什么时候进行常规命名？让我们弄清楚一点。</p> <p>作为一个“常数”，意味着值永远不变。但是有些常量在执行之前就已知了（比如红色的十六进制值），还有些在执行期间被“计算”出来，但初始赋值之后就不会改变。</p> <p>例如：</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">const</span> pageLoadTime <span class="token operator">=</span> <span class="token comment">/* 网页加载所需的时间 */</span><span class="token punctuation">;</span>
+</code></pre></div><p><code>pageLoadTime</code> 的值在页面加载之前是未知的，所以采用常规命名。但是它仍然是个常量，因为赋值之后不会改变。</p> <p>换句话说，大写命名的常量仅用作“硬编码（hard-coded）”值的别名。</p> <h2 id="正确命名变量"><a href="#正确命名变量" class="header-anchor">#</a> 正确命名变量</h2> <p>谈到变量，还有一件非常重要的事。</p> <p>一个变量名应该有一个清晰、明显的含义，对其存储的数据进行描述。</p> <p>变量命名是编程过程中最重要且最复杂的技能之一。快速地浏览变量的命名就知道代码是一个初学者还是有经验的开发者写的。</p> <p>在一个实际项目中，大多数的时间都被用来修改和扩展现有的代码库，而不是从头开始写一些完全独立的代码。当一段时间后，我们做完其他事情，重新回到我们的代码，找到命名良好的信息要容易得多。换句话说，变量要有个好名字。</p> <p>声明变量之前，多花点时间思考它的更好的命名。你会受益良多。</p> <p>一些可以遵循的规则：</p> <ul><li>使用易读的命名，比如 <code>userName</code> 或者 <code>shoppingCart</code>。</li> <li>离诸如 <code>a</code>、<code>b</code>、<code>c</code> 这种缩写和短名称远一点，除非你真的知道你在干什么。</li> <li>变量名在能够准确描述变量的同时要足够简洁。不好的例子就是 <code>data</code> 和 <code>value</code>，这样的名称等于什么都没说。如果能够非常明显地从上下文知道数据和值所表达的含义，这样使用它们也是可以的。</li> <li>脑海中的术语要和团队保持一致。如果网站的访客称为“用户”，则我们采用相关的变量命名，比如 <code>currentUser</code> 或者 <code>newUser</code>，而不要使用 <code>currentVisitor</code> 或者一个 <code>newManInTown</code>。</li></ul> <p>听上去很简单？确实如此，但是在实践中选择一个一目了然的变量名称并非如此简单。大胆试试吧。</p> <div class="custom-block tip"><p class="custom-block-title">重用还是新建？</p> <p>最后一点，有一些懒惰的程序员，倾向于重用现有的变量，而不是声明一个新的变量。</p> <p>结果是，这个变量就像是被扔进不同东西盒子，但没有改变它的贴纸。现在里面是什么？谁知道呢。我们需要靠近一点，仔细检查才能知道。</p> <p>这样的程序员节省了一点变量声明的时间，但却在调试代码的时候损失数十倍时间。</p> <p>额外声明一个变量绝对是利大于弊的。</p> <p>现代的 JavaScript 压缩器和浏览器都能够很好地对代码进行优化，所以不会产生性能问题。为不同的值使用不同的变量可以帮助引擎对代码进行优化。</p></div> <h2 id="总结"><a href="#总结" class="header-anchor">#</a> 总结</h2> <p>我们可以使用 <code>var</code>、<code>let</code> 或 <code>const</code> 声明变量来存储数据。</p> <ul><li><code>let</code> — 现代的变量声明方式。</li> <li><code>var</code> — 老旧的变量声明方式。一般情况下，我们不会再使用它。但是，我们会在 <a href="/var">var</a> 章节介绍 <code>var</code> 和 <code>let</code> 的微妙差别，以防你需要它们。</li> <li><code>const</code> — 类似于 <code>let</code>，但是变量的值无法被修改。</li></ul> <p>变量应当以一种容易理解变量内部是什么的方式进行命名。</p> <h2 id="任务"><a href="#任务" class="header-anchor">#</a> 任务</h2> <p><a href="https://zh.javascript.info/variables#tasks" target="_blank" rel="noopener noreferrer">https://zh.javascript.info/variables#tasks<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></p> <h3 id="使用变量"><a href="#使用变量" class="header-anchor">#</a> 使用变量</h3> <ol><li>声明两个变量：<code>admin</code> 和 <code>name</code>。</li> <li>将值 <code>&quot;John&quot;</code> 赋给 <code>name</code>。</li> <li>从 <code>name</code> 变量中拷贝其值给 <code>admin</code>。</li> <li>使用 <code>alert</code> 显示 <code>admin</code> 的值（必须输出 &quot;John&quot;）。</li></ol> <p>下面的代码，每一行都对应着任务列表中的对应项。</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">let</span> admin<span class="token punctuation">,</span> name<span class="token punctuation">;</span> <span class="token comment">// 一次声明两个变量。</span>
+
+name <span class="token operator">=</span> <span class="token string">&quot;John&quot;</span><span class="token punctuation">;</span>
+
+admin <span class="token operator">=</span> name<span class="token punctuation">;</span>
+
+<span class="token function">alert</span><span class="token punctuation">(</span> admin <span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// &quot;John&quot;</span>
+</code></pre></div><h3 id="给出正确的名字"><a href="#给出正确的名字" class="header-anchor">#</a> 给出正确的名字</h3> <ol><li>使用我们的星球的名字创建一个变量。你会怎么命名这个变量？</li> <li>创建一个变量来存储当前浏览者的名字。你会怎么命名这个变量？</li></ol> <p><strong>代表我们星球的变量</strong></p> <p>这很简单：</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">let</span> ourPlanetName <span class="token operator">=</span> <span class="token string">&quot;Earth&quot;</span><span class="token punctuation">;</span>
+</code></pre></div><p>注意，我们也可以用一个更简短的名字 <code>planet</code>，但这样可能并不能表达清楚它指的是哪个星球。再啰嗦一点也挺好的。至少让这个变量别太长就行。</p> <p><strong>网站当前访问者的名字</strong></p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">let</span> currentUserName <span class="token operator">=</span> <span class="token string">&quot;John&quot;</span><span class="token punctuation">;</span>
+</code></pre></div><p>同样，如果我们的确知道用户就是当前的用户的话，我们可以使用更短的变量名 <code>userName</code>。</p> <p>现代编辑器的自动补全可以让长变量名变得容易编写。不要浪费这个特性。一个名字中包含三个词挺好的。</p> <p>如果你的编辑器没有合适的自动补全功能，换 <a href="/code-editors">一个新的吧</a>。</p> <h3 id="大写的常量"><a href="#大写的常量" class="header-anchor">#</a> 大写的常量？</h3> <p>检查下面的代码：</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">const</span> birthday <span class="token operator">=</span> <span class="token string">'18.04.1982'</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> age <span class="token operator">=</span> <span class="token function">someCode</span><span class="token punctuation">(</span>birthday<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><p>这里我们有一个 <code>birthday</code> 日期常量和通过一些代码（为了保持简短这里没有提供，因为这些细节在这无关紧要）从 <code>birthday</code> 计算出的 <code>age</code> 常量。</p> <p>对于 <code>birthday</code> 使用大写方式正确吗？那么 <code>age</code> 呢？或者两者都用？</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">const</span> <span class="token constant">BIRTHDAY</span> <span class="token operator">=</span> <span class="token string">'18.04.1982'</span><span class="token punctuation">;</span> <span class="token comment">// 使用大写？</span>
+
+<span class="token keyword">const</span> <span class="token constant">AGE</span> <span class="token operator">=</span> <span class="token function">someCode</span><span class="token punctuation">(</span><span class="token constant">BIRTHDAY</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 使用大写？</span>
+</code></pre></div><p>我们通常用大写字母表示“硬编码（hard-coded）”的常量。或者，换句话说就是，当值在执行之前或在被写入代码的时候，我们就知道值是什么了。</p> <p>在这个代码中 <code>birthday</code> 确实是这样的。因此我们可以使用大写。</p> <p>在对照组中，<code>age</code> 是在程序运行时计算出的。今天我们有一个年龄，一年以后我们就会有另一个。它在某种意义上不会随着代码的执行而改变。但与 <code>birthday</code> 相比，它还是有一定的可变性：它是计算出来的，因此我们应该使用小写。</p></div> <footer class="page-edit"><div class="edit-link"><a href="https://github.com/wangyan/vuepress-javascript/edit/develop/docs/1-js/02-first-steps/04-variables/article.md" target="_blank" rel="noopener noreferrer">在 GitHub 上编辑</a> <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></div> <div class="last-updated"><span class="prefix">最后更新时间:</span> <span class="time">2020/11/7 上午2:18:33</span></div></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ⟵
+      <a href="/strict-mode/" class="prev">
+        2.3. 现代模式，&quot;use strict&quot;
+      </a></span> <span class="next"><a href="/types/">
+        2.5. 数据类型
+      </a>
+      ⟶
+    </span></p></div> </main></div><div class="global-ui"><div style="visibility:hidden;display:none;"></div><!----><!----></div></div>
+    <script src="/assets/js/app.83f5da50.js" defer></script><script src="/assets/js/2.741d139e.js" defer></script><script src="/assets/js/15.37f20174.js" defer></script><script src="/assets/js/20.2b87c008.js" defer></script>
+  </body>
+</html>

@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Symbol 类型 | 现代 JavaScript 教程</title>
+    <meta name="generator" content="VuePress 1.8.2">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="icon" type="image/png" sizes="36x36" href="/icons/icon-ldpi-36x36.png">
+    <link rel="apple-touch-icon" type="image/png" sizes="36x36" href="/icons/icon-ldpi-36x36.png">
+    <link rel="icon" sizes="48x48" href="/icons/icon-mdpi-48x48.png">
+    <link rel="apple-touch-icon" sizes="48x48" href="/icons/icon-mdpi-48x48.png">
+    <link rel="icon" sizes="72x72" href="/icons/icon-hdpi-72x72.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/icons/icon-hdpi-72x72.png">
+    <link rel="icon" sizes="96x96" href="/icons/icon-xhdpi-96x96.png">
+    <link rel="apple-touch-icon" sizes="96x96" href="/icons/icon-xhdpi-96x96.png">
+    <link rel="icon" sizes="144x144" href="/icons/icon-xxhdpi-144x144.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/icons/icon-xxhdpi-144x144.png">
+    <link rel="icon" sizes="192x192" href="/icons/icon-xxxhdpi-192x192.png">
+    <link rel="apple-touch-icon" sizes="192x192" href="/icons/icon-xxxhdpi-192x192.png">
+    <link rel="icon" sizes="512x512" href="/icons/icon-72dpi-512x512.png">
+    <link rel="apple-touch-icon" sizes="512x512" href="/icons/icon-72dpi-512x512.png">
+    <link rel="icon" sizes="1024x1024" href="/icons/icon-144dpi-1024x1024.png">
+    <link rel="apple-touch-icon" sizes="1024x1024" href="/icons/icon-144dpi-1024x1024.png">
+    <meta name="description" content="以最新的 JavaScript 标准为基准。通过简单但足够详细的内容，为你讲解从基础到高阶的 JavaScript 相关知识。">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="application-name" content="现代 JavaScript 教程">
+    <meta name="apple-mobile-web-app-title" content="现代 JavaScript 教程">
+    <meta name="theme-color" content="#fff">
+    <meta name="msapplication-navbutton-color" content="#fff">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="msapplication-starturl" content="index.html">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <link rel="preload" href="/assets/css/0.styles.d0e1634f.css" as="style"><link rel="preload" href="/assets/js/app.83f5da50.js" as="script"><link rel="preload" href="/assets/js/2.741d139e.js" as="script"><link rel="preload" href="/assets/js/48.e29e5227.js" as="script"><link rel="preload" href="/assets/js/20.2b87c008.js" as="script"><link rel="prefetch" href="/assets/js/10.9650b6ca.js"><link rel="prefetch" href="/assets/js/11.1c6d6528.js"><link rel="prefetch" href="/assets/js/12.43731225.js"><link rel="prefetch" href="/assets/js/13.59881730.js"><link rel="prefetch" href="/assets/js/14.341aa408.js"><link rel="prefetch" href="/assets/js/15.37f20174.js"><link rel="prefetch" href="/assets/js/16.e65623b0.js"><link rel="prefetch" href="/assets/js/17.525277bd.js"><link rel="prefetch" href="/assets/js/18.7e5fe6b0.js"><link rel="prefetch" href="/assets/js/19.8a423a32.js"><link rel="prefetch" href="/assets/js/21.35925ffe.js"><link rel="prefetch" href="/assets/js/22.7220c015.js"><link rel="prefetch" href="/assets/js/23.f91fed20.js"><link rel="prefetch" href="/assets/js/24.f55fca3f.js"><link rel="prefetch" href="/assets/js/25.ab318aa9.js"><link rel="prefetch" href="/assets/js/26.2515724b.js"><link rel="prefetch" href="/assets/js/27.2d48422d.js"><link rel="prefetch" href="/assets/js/28.bf73e5a5.js"><link rel="prefetch" href="/assets/js/29.7add7094.js"><link rel="prefetch" href="/assets/js/3.63868dc5.js"><link rel="prefetch" href="/assets/js/30.f16b582f.js"><link rel="prefetch" href="/assets/js/31.1cbe3b01.js"><link rel="prefetch" href="/assets/js/32.49ad9f58.js"><link rel="prefetch" href="/assets/js/33.831966e9.js"><link rel="prefetch" href="/assets/js/34.c3cecff7.js"><link rel="prefetch" href="/assets/js/35.d60a17a1.js"><link rel="prefetch" href="/assets/js/36.6a6802c9.js"><link rel="prefetch" href="/assets/js/37.aaf3f6a6.js"><link rel="prefetch" href="/assets/js/38.11598708.js"><link rel="prefetch" href="/assets/js/39.8a3cbf96.js"><link rel="prefetch" href="/assets/js/4.471c379b.js"><link rel="prefetch" href="/assets/js/40.146fd1a9.js"><link rel="prefetch" href="/assets/js/41.2caf8da3.js"><link rel="prefetch" href="/assets/js/42.583d4934.js"><link rel="prefetch" href="/assets/js/43.39c6c351.js"><link rel="prefetch" href="/assets/js/44.fdd6dece.js"><link rel="prefetch" href="/assets/js/45.3e97a42c.js"><link rel="prefetch" href="/assets/js/46.8da318e6.js"><link rel="prefetch" href="/assets/js/47.e8cce718.js"><link rel="prefetch" href="/assets/js/49.a53d3ef6.js"><link rel="prefetch" href="/assets/js/5.e81fb6e4.js"><link rel="prefetch" href="/assets/js/50.ff4d9108.js"><link rel="prefetch" href="/assets/js/51.87e52449.js"><link rel="prefetch" href="/assets/js/52.6b5fe7f7.js"><link rel="prefetch" href="/assets/js/53.f3afeef2.js"><link rel="prefetch" href="/assets/js/54.5569b62a.js"><link rel="prefetch" href="/assets/js/55.2e2222fd.js"><link rel="prefetch" href="/assets/js/56.2680f090.js"><link rel="prefetch" href="/assets/js/57.5df03027.js"><link rel="prefetch" href="/assets/js/58.fd022198.js"><link rel="prefetch" href="/assets/js/59.cdac29d4.js"><link rel="prefetch" href="/assets/js/6.49d91683.js"><link rel="prefetch" href="/assets/js/60.8d56ce67.js"><link rel="prefetch" href="/assets/js/61.025320dd.js"><link rel="prefetch" href="/assets/js/62.6d59a313.js"><link rel="prefetch" href="/assets/js/63.3f382f49.js"><link rel="prefetch" href="/assets/js/64.031ae36b.js"><link rel="prefetch" href="/assets/js/65.65cab595.js"><link rel="prefetch" href="/assets/js/66.c110100c.js"><link rel="prefetch" href="/assets/js/67.cdcedc8b.js"><link rel="prefetch" href="/assets/js/7.84920acb.js"><link rel="prefetch" href="/assets/js/8.898da7ef.js"><link rel="prefetch" href="/assets/js/9.06ec3991.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.d0e1634f.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">现代 JavaScript 教程</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link">
+  首页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="基础" class="dropdown-title"><span class="title">基础</span> <span class="arrow down"></span></button> <button type="button" aria-label="基础" class="mobile-dropdown-title"><span class="title">基础</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/getting-started/" class="nav-link">
+  An introduction
+</a></li><li class="dropdown-item"><!----> <a href="/first-steps/" class="nav-link">
+  JavaScript Fundamentals
+</a></li><li class="dropdown-item"><!----> <a href="/code-quality/" class="nav-link">
+  Code quality
+</a></li><li class="dropdown-item"><!----> <a href="/object-basics/" class="nav-link">
+  Objects: the basics
+</a></li><li class="dropdown-item"><!----> <a href="/data-types/" class="nav-link">
+  Data types
+</a></li><li class="dropdown-item"><!----> <a href="/advanced-functions/" class="nav-link">
+  Advanced working with functions
+</a></li><li class="dropdown-item"><!----> <a href="/object-properties/" class="nav-link">
+  Object properties configuration
+</a></li><li class="dropdown-item"><!----> <a href="/prototypes/" class="nav-link">
+  Prototypes, inheritance
+</a></li><li class="dropdown-item"><!----> <a href="/classes/" class="nav-link">
+  Classes
+</a></li><li class="dropdown-item"><!----> <a href="/error-handling/" class="nav-link">
+  Error handling
+</a></li><li class="dropdown-item"><!----> <a href="/async/" class="nav-link">
+  Promises, async/await
+</a></li><li class="dropdown-item"><!----> <a href="/generators-iterators/" class="nav-link">
+  Generators, advanced iteration
+</a></li><li class="dropdown-item"><!----> <a href="/modules/" class="nav-link">
+  Modules
+</a></li><li class="dropdown-item"><!----> <a href="/js-misc/" class="nav-link">
+  Miscellaneous
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="进阶" class="dropdown-title"><span class="title">进阶</span> <span class="arrow down"></span></button> <button type="button" aria-label="进阶" class="mobile-dropdown-title"><span class="title">进阶</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/document/" class="nav-link">
+  Document
+</a></li><li class="dropdown-item"><!----> <a href="/events/" class="nav-link">
+  Introduction to Events
+</a></li><li class="dropdown-item"><!----> <a href="/event-details/" class="nav-link">
+  UI Events
+</a></li><li class="dropdown-item"><!----> <a href="/forms-controls/" class="nav-link">
+  Forms, controls
+</a></li><li class="dropdown-item"><!----> <a href="/loading/" class="nav-link">
+  Document and resource loading
+</a></li><li class="dropdown-item"><!----> <a href="/ui-misc/" class="nav-link">
+  Miscellaneous
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="专题" class="dropdown-title"><span class="title">专题</span> <span class="arrow down"></span></button> <button type="button" aria-label="专题" class="mobile-dropdown-title"><span class="title">专题</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/frames-and-windows/" class="nav-link">
+  Frames and windows
+</a></li><li class="dropdown-item"><!----> <a href="/binary/" class="nav-link">
+  Binary data, files
+</a></li><li class="dropdown-item"><!----> <a href="/network/" class="nav-link">
+  Network requests
+</a></li><li class="dropdown-item"><!----> <a href="/data-storage/" class="nav-link">
+  Storing data in the browser
+</a></li><li class="dropdown-item"><!----> <a href="/animation/" class="nav-link">
+  Animation
+</a></li><li class="dropdown-item"><!----> <a href="/web-components/" class="nav-link">
+  Web components
+</a></li><li class="dropdown-item"><!----> <a href="/regular-expressions/" class="nav-link">
+  Regular expressions
+</a></li></ul></div></div> <div class="nav-item"><a role="button" aria-label="Switch to light mode" class="nav-link"><span>Switch theme</span></a></div> <a href="https://github.com/wangyan/javascript-tutorial" target="_blank" rel="noopener noreferrer" class="repo-link">
+    查看源码
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link">
+  首页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="基础" class="dropdown-title"><span class="title">基础</span> <span class="arrow down"></span></button> <button type="button" aria-label="基础" class="mobile-dropdown-title"><span class="title">基础</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/getting-started/" class="nav-link">
+  An introduction
+</a></li><li class="dropdown-item"><!----> <a href="/first-steps/" class="nav-link">
+  JavaScript Fundamentals
+</a></li><li class="dropdown-item"><!----> <a href="/code-quality/" class="nav-link">
+  Code quality
+</a></li><li class="dropdown-item"><!----> <a href="/object-basics/" class="nav-link">
+  Objects: the basics
+</a></li><li class="dropdown-item"><!----> <a href="/data-types/" class="nav-link">
+  Data types
+</a></li><li class="dropdown-item"><!----> <a href="/advanced-functions/" class="nav-link">
+  Advanced working with functions
+</a></li><li class="dropdown-item"><!----> <a href="/object-properties/" class="nav-link">
+  Object properties configuration
+</a></li><li class="dropdown-item"><!----> <a href="/prototypes/" class="nav-link">
+  Prototypes, inheritance
+</a></li><li class="dropdown-item"><!----> <a href="/classes/" class="nav-link">
+  Classes
+</a></li><li class="dropdown-item"><!----> <a href="/error-handling/" class="nav-link">
+  Error handling
+</a></li><li class="dropdown-item"><!----> <a href="/async/" class="nav-link">
+  Promises, async/await
+</a></li><li class="dropdown-item"><!----> <a href="/generators-iterators/" class="nav-link">
+  Generators, advanced iteration
+</a></li><li class="dropdown-item"><!----> <a href="/modules/" class="nav-link">
+  Modules
+</a></li><li class="dropdown-item"><!----> <a href="/js-misc/" class="nav-link">
+  Miscellaneous
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="进阶" class="dropdown-title"><span class="title">进阶</span> <span class="arrow down"></span></button> <button type="button" aria-label="进阶" class="mobile-dropdown-title"><span class="title">进阶</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/document/" class="nav-link">
+  Document
+</a></li><li class="dropdown-item"><!----> <a href="/events/" class="nav-link">
+  Introduction to Events
+</a></li><li class="dropdown-item"><!----> <a href="/event-details/" class="nav-link">
+  UI Events
+</a></li><li class="dropdown-item"><!----> <a href="/forms-controls/" class="nav-link">
+  Forms, controls
+</a></li><li class="dropdown-item"><!----> <a href="/loading/" class="nav-link">
+  Document and resource loading
+</a></li><li class="dropdown-item"><!----> <a href="/ui-misc/" class="nav-link">
+  Miscellaneous
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="专题" class="dropdown-title"><span class="title">专题</span> <span class="arrow down"></span></button> <button type="button" aria-label="专题" class="mobile-dropdown-title"><span class="title">专题</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/frames-and-windows/" class="nav-link">
+  Frames and windows
+</a></li><li class="dropdown-item"><!----> <a href="/binary/" class="nav-link">
+  Binary data, files
+</a></li><li class="dropdown-item"><!----> <a href="/network/" class="nav-link">
+  Network requests
+</a></li><li class="dropdown-item"><!----> <a href="/data-storage/" class="nav-link">
+  Storing data in the browser
+</a></li><li class="dropdown-item"><!----> <a href="/animation/" class="nav-link">
+  Animation
+</a></li><li class="dropdown-item"><!----> <a href="/web-components/" class="nav-link">
+  Web components
+</a></li><li class="dropdown-item"><!----> <a href="/regular-expressions/" class="nav-link">
+  Regular expressions
+</a></li></ul></div></div> <div class="nav-item"><a role="button" aria-label="Switch to light mode" class="nav-link"><span>Switch theme</span></a></div> <a href="https://github.com/wangyan/javascript-tutorial" target="_blank" rel="noopener noreferrer" class="repo-link">
+    查看源码
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><a href="/1-js/01-getting-started/" class="sidebar-heading clickable"><span>第 1 节：简介</span> <!----></a> <ul class="sidebar-links sidebar-group-items"><li><a href="/intro/" class="sidebar-link">1.1. JavaScript 简介</a></li><li><a href="/manuals-specifications/" class="sidebar-link">1.2. 手册与规范</a></li><li><a href="/code-editors/" class="sidebar-link">1.3. 代码编辑器</a></li><li><a href="/devtools/" class="sidebar-link">1.4. 开发者控制台</a></li></ul></section></li><li><section class="sidebar-group depth-0"><a href="/1-js/02-first-steps/" class="sidebar-heading clickable"><span>第 2 节：JavaScript 基础知识</span> <!----></a> <ul class="sidebar-links sidebar-group-items"><li><a href="/hello-world/" class="sidebar-link">2.1. Hello, world!</a></li><li><a href="/structure/" class="sidebar-link">2.2. 代码结构</a></li><li><a href="/strict-mode/" class="sidebar-link">2.3. 现代模式，&quot;use strict&quot;</a></li><li><a href="/variables/" class="sidebar-link">2.4. 变量</a></li><li><a href="/types/" class="sidebar-link">2.5. 数据类型</a></li><li><a href="/alert-prompt-confirm/" class="sidebar-link">2.6. 交互：alert、prompt、confirm</a></li><li><a href="/type-conversions/" class="sidebar-link">2.7. 类型转换</a></li><li><a href="/operators/" class="sidebar-link">2.8. 运算符</a></li><li><a href="/comparison/" class="sidebar-link">2.9. 值的比较</a></li><li><a href="/ifelse/" class="sidebar-link">2.10. 条件运算符：if、?</a></li><li><a href="/logical-operators/" class="sidebar-link">2.11. 逻辑运算符</a></li><li><a href="/nullish-coalescing-operator/" class="sidebar-link">2.12. 空值合并运算符&quot;??&quot;</a></li><li><a href="/while-for/" class="sidebar-link">2.13. 循环：while 和 for</a></li><li><a href="/switch/" class="sidebar-link">2.14. &quot;switch&quot; 语句</a></li><li><a href="/function-basics/" class="sidebar-link">2.15. 函数</a></li><li><a href="/function-expressions/" class="sidebar-link">2.16. 函数表达式</a></li><li><a href="/arrow-functions-basics/" class="sidebar-link">2.17. 箭头函数，基础知识</a></li><li><a href="/javascript-specials/" class="sidebar-link">2.18. JavasScript 特性</a></li></ul></section></li><li><section class="sidebar-group depth-0"><a href="/1-js/03-code-quality/" class="sidebar-heading clickable"><span>第 3 节：代码质量</span> <!----></a> <ul class="sidebar-links sidebar-group-items"><li><a href="/debugging-chrome/" class="sidebar-link">3.1. 在 Chrome 中调试</a></li><li><a href="/coding-style/" class="sidebar-link">3.2. 代码风格</a></li><li><a href="/comments/" class="sidebar-link">3.3. 注释</a></li><li><a href="/ninja-code/" class="sidebar-link">3.4. 忍者代码</a></li><li><a href="/testing-mocha/" class="sidebar-link">3.5. 使用 mocha 进行自动化测试</a></li><li><a href="/polyfills/" class="sidebar-link">3.6. Polyfills</a></li></ul></section></li><li><section class="sidebar-group depth-0"><a href="/1-js/04-object-basics/" class="sidebar-heading clickable open"><span>第 4 节：Object 基础知识</span> <!----></a> <ul class="sidebar-links sidebar-group-items"><li><a href="/object/" class="sidebar-link">4.1. 对象</a></li><li><a href="/object-copy/" class="sidebar-link">4.2. 对象引用和复制</a></li><li><a href="/garbage-collection/" class="sidebar-link">4.3. 垃圾回收</a></li><li><a href="/object-methods/" class="sidebar-link">4.4. 对象方法，&quot;this&quot;</a></li><li><a href="/constructor-new/" class="sidebar-link">4.5. 构造器和操作符 &quot;new&quot;</a></li><li><a href="/optional-chaining/" class="sidebar-link">4.6. 可选链 &quot;?.&quot;</a></li><li><a href="/symbol/" aria-current="page" class="active sidebar-link">4.7. Symbol 类型</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/symbol/#symbol" class="sidebar-link">Symbol</a></li><li class="sidebar-sub-header"><a href="/symbol/#隐藏-属性" class="sidebar-link">“隐藏”属性</a></li><li class="sidebar-sub-header"><a href="/symbol/#全局-symbol" class="sidebar-link">全局 symbol</a></li><li class="sidebar-sub-header"><a href="/symbol/#系统-symbol" class="sidebar-link">系统 Symbol</a></li><li class="sidebar-sub-header"><a href="/symbol/#总结" class="sidebar-link">总结</a></li></ul></li><li><a href="/object-toprimitive/" class="sidebar-link">4.8. 对象 — 原始值转换</a></li></ul></section></li><li><section class="sidebar-group depth-0"><a href="/1-js/05-data-types/" class="sidebar-heading clickable"><span>第 5 节：数据类型</span> <!----></a> <ul class="sidebar-links sidebar-group-items"><li><a href="/primitives-methods/" class="sidebar-link">5.1. 原始类型的方法</a></li><li><a href="/number/" class="sidebar-link">5.2. 数字类型</a></li><li><a href="/string/" class="sidebar-link">5.3. 字符串</a></li><li><a href="/1-js/05-data-types/04-array/article.html" class="sidebar-link">5.4. 数组</a></li><li><a href="/1-js/05-data-types/05-array-methods/article.html" class="sidebar-link">5.5. 数组方法</a></li><li><a href="/1-js/05-data-types/06-iterable/article.html" class="sidebar-link">5.6. 可迭代对象</a></li><li><a href="/1-js/05-data-types/07-map-set/article.html" class="sidebar-link">5.7. 映射和集合</a></li><li><a href="/1-js/05-data-types/08-weakmap-weakset/article.html" class="sidebar-link">5.8. 弱映射和弱集合</a></li><li><a href="/1-js/05-data-types/09-keys-values-entries/article.html" class="sidebar-link">5.9. Object.keys，values，entries</a></li><li><a href="/1-js/05-data-types/10-destructuring-assignment/article.html" class="sidebar-link">5.10. 解构赋值</a></li><li><a href="/1-js/05-data-types/11-date/article.html" class="sidebar-link">5.11. 日期和时间</a></li><li><a href="/1-js/05-data-types/12-json/article.html" class="sidebar-link">5.12. JSON 方法，toJSON</a></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-succinct-content content__default"><h1 id="symbol-类型"><a href="#symbol-类型" class="header-anchor">#</a> Symbol 类型</h1> <p>根据规范，对象的属性键只能是字符串类型或者 Symbol 类型。不是 Number，也不是 Boolean，只有字符串或 Symbol 这两种类型。</p> <p>到目前为止，我们只见过字符串。现在我们来看看 Symbol 能给我们带来什么好处。</p> <h2 id="symbol"><a href="#symbol" class="header-anchor">#</a> Symbol</h2> <p>&quot;Symbol&quot; 值表示唯一的标识符。</p> <p>可以使用 <code>Symbol()</code> 来创建这种类型的值：</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// id 是 symbol 的一个实例化对象</span>
+<span class="token keyword">let</span> id <span class="token operator">=</span> <span class="token function">Symbol</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><p>创建时，我们可以给 Symbol 一个描述（也称为 Symbol 名），这在代码调试时非常有用：</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// id 是描述为 &quot;id&quot; 的 Symbol</span>
+<span class="token keyword">let</span> id <span class="token operator">=</span> <span class="token function">Symbol</span><span class="token punctuation">(</span><span class="token string">&quot;id&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><p>Symbol 保证是唯一的。即使我们创建了许多具有相同描述的 Symbol，它们的值也是不同。描述只是一个标签，不影响任何东西。</p> <p>例如，这里有两个描述相同的 Symbol —— 它们不相等：</p> <div class="language-js extra-class"><div class="highlight-lines"><br><br><br><div class="highlighted"> </div><br></div><pre class="language-js"><code><span class="token keyword">let</span> id1 <span class="token operator">=</span> <span class="token function">Symbol</span><span class="token punctuation">(</span><span class="token string">&quot;id&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">let</span> id2 <span class="token operator">=</span> <span class="token function">Symbol</span><span class="token punctuation">(</span><span class="token string">&quot;id&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token function">alert</span><span class="token punctuation">(</span>id1 <span class="token operator">==</span> id2<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// false</span>
+</code></pre></div><p>如果你熟悉 Ruby 或者其他有 &quot;Symbol&quot; 的语言 —— 别被误导。JavaScript 的 Symbol 是不同的。</p> <div class="custom-block warning"><p class="custom-block-title">Symbol 不会被自动转换为字符串</p> <p>JavaScript 中的大多数值都支持字符串的隐式转换。例如，我们可以 <code>alert</code> 任何值，都可以生效。Symbol 比较特殊，它不会被自动转换。</p> <p>例如，这个 <code>alert</code> 将会提示出错：</p> <div class="language-js extra-class"><div class="highlight-lines"><br><div class="highlighted"> </div><br></div><pre class="language-js"><code><span class="token keyword">let</span> id <span class="token operator">=</span> <span class="token function">Symbol</span><span class="token punctuation">(</span><span class="token string">&quot;id&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">alert</span><span class="token punctuation">(</span>id<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 类型错误：无法将 Symbol 值转换为字符串。</span>
+</code></pre></div><p>这是一种防止混乱的“语言保护”，因为字符串和 Symbol 有本质上的不同，不应该意外地将它们转换成另一个。</p> <p>如果我们真的想显示一个 Symbol，我们需要在它上面调用 <code>.toString()</code>，如下所示：</p> <div class="language-js extra-class"><div class="highlight-lines"><br><div class="highlighted"> </div><br></div><pre class="language-js"><code><span class="token keyword">let</span> id <span class="token operator">=</span> <span class="token function">Symbol</span><span class="token punctuation">(</span><span class="token string">&quot;id&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">alert</span><span class="token punctuation">(</span>id<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// Symbol(id)，现在它有效了</span>
+</code></pre></div><p>或者获取 <code>symbol.description</code> 属性，只显示描述（description）：</p> <div class="language-js extra-class"><div class="highlight-lines"><br><div class="highlighted"> </div><br></div><pre class="language-js"><code><span class="token keyword">let</span> id <span class="token operator">=</span> <span class="token function">Symbol</span><span class="token punctuation">(</span><span class="token string">&quot;id&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">alert</span><span class="token punctuation">(</span>id<span class="token punctuation">.</span>description<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// id</span>
+</code></pre></div></div> <h2 id="隐藏-属性"><a href="#隐藏-属性" class="header-anchor">#</a> “隐藏”属性</h2> <p>Symbol 允许我们创建对象的“隐藏”属性，代码的任何其他部分都不能意外访问或重写这些属性。</p> <p>例如，如果我们使用的是属于第三方代码的 <code>user</code> 对象，我们想要给它们添加一些标识符。</p> <p>我们可以给它们使用 Symbol 键：</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">let</span> user <span class="token operator">=</span> <span class="token punctuation">{</span> <span class="token comment">// 属于另一个代码</span>
+  name<span class="token operator">:</span> <span class="token string">&quot;John&quot;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token keyword">let</span> id <span class="token operator">=</span> <span class="token function">Symbol</span><span class="token punctuation">(</span><span class="token string">&quot;id&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+user<span class="token punctuation">[</span>id<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+
+<span class="token function">alert</span><span class="token punctuation">(</span> user<span class="token punctuation">[</span>id<span class="token punctuation">]</span> <span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 我们可以使用 Symbol 作为键来访问数据</span>
+</code></pre></div><p>使用 <code>Symbol(&quot;id&quot;)</code> 作为键，比起用字符串 <code>&quot;id&quot;</code> 来有什么好处呢？</p> <p>因为 <code>user</code> 对象属于其他的代码，那些代码也会使用这个对象，所以我们不应该在它上面直接添加任何字段，这样很不安全。但是你添加的 Symbol 属性不会被意外访问到，第三方代码根本不会看到它，所以使用 Symbol 基本上不会有问题。</p> <p>另外，假设另一个脚本希望在 <code>user</code> 中有自己的标识符，以实现自己的目的。这可能是另一个 JavaScript 库，因此脚本之间完全不了解彼此。</p> <p>然后该脚本可以创建自己的 <code>Symbol(&quot;id&quot;)</code>，像这样：</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// ...</span>
+<span class="token keyword">let</span> id <span class="token operator">=</span> <span class="token function">Symbol</span><span class="token punctuation">(</span><span class="token string">&quot;id&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+user<span class="token punctuation">[</span>id<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">&quot;Their id value&quot;</span><span class="token punctuation">;</span>
+</code></pre></div><p>我们的标识符和它们的标识符之间不会有冲突，因为 Symbol 总是不同的，即使它们有相同的名字。</p> <p>……但如果我们处于同样的目的，使用字符串 <code>&quot;id&quot;</code> 而不是用 symbol，那么 <strong>就会</strong> 出现冲突：</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">let</span> user <span class="token operator">=</span> <span class="token punctuation">{</span> name<span class="token operator">:</span> <span class="token string">&quot;John&quot;</span> <span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token comment">// 我们的脚本使用了 &quot;id&quot; 属性。</span>
+user<span class="token punctuation">.</span>id <span class="token operator">=</span> <span class="token string">&quot;Our id value&quot;</span><span class="token punctuation">;</span>
+
+<span class="token comment">// ……另一个脚本也想将 &quot;id&quot; 用于它的目的……</span>
+
+user<span class="token punctuation">.</span>id <span class="token operator">=</span> <span class="token string">&quot;Their id value&quot;</span>
+<span class="token comment">// 砰！无意中被另一个脚本重写了 id！</span>
+</code></pre></div><h3 id="对象字面量中的-symbol"><a href="#对象字面量中的-symbol" class="header-anchor">#</a> 对象字面量中的 Symbol</h3> <p>如果我们要在对象字面量 <code>{...}</code> 中使用 Symbol，则需要使用方括号把它括起来。</p> <p>就像这样：</p> <div class="language-js extra-class"><div class="highlight-lines"><br><br><br><br><div class="highlighted"> </div><br><br></div><pre class="language-js"><code><span class="token keyword">let</span> id <span class="token operator">=</span> <span class="token function">Symbol</span><span class="token punctuation">(</span><span class="token string">&quot;id&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">let</span> user <span class="token operator">=</span> <span class="token punctuation">{</span>
+  name<span class="token operator">:</span> <span class="token string">&quot;John&quot;</span><span class="token punctuation">,</span>
+  <span class="token punctuation">[</span>id<span class="token punctuation">]</span><span class="token operator">:</span> <span class="token number">123</span> <span class="token comment">// 而不是 &quot;id&quot;：123</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre></div><p>这是因为我们需要变量 <code>id</code> 的值作为键，而不是字符串 &quot;id&quot;。</p> <h3 id="symbol-在-for-in-中会被跳过"><a href="#symbol-在-for-in-中会被跳过" class="header-anchor">#</a> Symbol 在 for..in 中会被跳过</h3> <p>Symbol 属性不参与 <code>for..in</code> 循环。</p> <p>例如：</p> <div class="language-js extra-class"><div class="highlight-lines"><br><br><br><br><br><br><br><div class="highlighted"> </div><br><br><br><br></div><pre class="language-js"><code><span class="token keyword">let</span> id <span class="token operator">=</span> <span class="token function">Symbol</span><span class="token punctuation">(</span><span class="token string">&quot;id&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">let</span> user <span class="token operator">=</span> <span class="token punctuation">{</span>
+  name<span class="token operator">:</span> <span class="token string">&quot;John&quot;</span><span class="token punctuation">,</span>
+  age<span class="token operator">:</span> <span class="token number">30</span><span class="token punctuation">,</span>
+  <span class="token punctuation">[</span>id<span class="token punctuation">]</span><span class="token operator">:</span> <span class="token number">123</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> key <span class="token keyword">in</span> user<span class="token punctuation">)</span> <span class="token function">alert</span><span class="token punctuation">(</span>key<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// name, age (no symbols)</span>
+
+<span class="token comment">// 使用 Symbol 任务直接访问</span>
+<span class="token function">alert</span><span class="token punctuation">(</span> <span class="token string">&quot;Direct: &quot;</span> <span class="token operator">+</span> user<span class="token punctuation">[</span>id<span class="token punctuation">]</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><p><code>Object.keys(user)</code> 也会忽略它们。这是一般“隐藏符号属性”原则的一部分。如果另一个脚本或库遍历我们的对象，它不会意外地访问到符号属性。</p> <p>相反，<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/assign" target="_blank" rel="noopener noreferrer">Object.assign<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a> 会同时复制字符串和 symbol 属性：</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">let</span> id <span class="token operator">=</span> <span class="token function">Symbol</span><span class="token punctuation">(</span><span class="token string">&quot;id&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">let</span> user <span class="token operator">=</span> <span class="token punctuation">{</span>
+  <span class="token punctuation">[</span>id<span class="token punctuation">]</span><span class="token operator">:</span> <span class="token number">123</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token keyword">let</span> clone <span class="token operator">=</span> Object<span class="token punctuation">.</span><span class="token function">assign</span><span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span> user<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token function">alert</span><span class="token punctuation">(</span> clone<span class="token punctuation">[</span>id<span class="token punctuation">]</span> <span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 123</span>
+</code></pre></div><p>这里并不矛盾，就是这样设计的。这里的想法是当我们克隆或者合并一个 object 时，通常希望 <strong>所有</strong> 属性被复制（包括像 <code>id</code> 这样的 Symbol）。</p> <h2 id="全局-symbol"><a href="#全局-symbol" class="header-anchor">#</a> 全局 symbol</h2> <p>正如我们所看到的，通常所有的 Symbol 都是不同的，即使它们有相同的名字。但有时我们想要名字相同的 Symbol 具有相同的实体。例如，应用程序的不同部分想要访问的 Symbol <code>&quot;id&quot;</code> 指的是完全相同的属性。</p> <p>为了实现这一点，这里有一个 <strong>全局 Symbol 注册表</strong>。我们可以在其中创建 Symbol 并在稍后访问它们，它可以确保每次访问相同名字的 Symbol 时，返回的都是相同的 Symbol。</p> <p>要从注册表中读取（不存在则创建）Symbol，请使用 <code>Symbol.for(key)</code>。</p> <p>该调用会检查全局注册表，如果有一个描述为 <code>key</code> 的 Symbol，则返回该 Symbol，否则将创建一个新 Symbol（<code>Symbol(key)</code>），并通过给定的 <code>key</code> 将其存储在注册表中。</p> <p>例如：</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// 从全局注册表中读取</span>
+<span class="token keyword">let</span> id <span class="token operator">=</span> Symbol<span class="token punctuation">.</span><span class="token function">for</span><span class="token punctuation">(</span><span class="token string">&quot;id&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 如果该 Symbol 不存在，则创建它</span>
+
+<span class="token comment">// 再次读取（可能是在代码中的另一个位置）</span>
+<span class="token keyword">let</span> idAgain <span class="token operator">=</span> Symbol<span class="token punctuation">.</span><span class="token function">for</span><span class="token punctuation">(</span><span class="token string">&quot;id&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// 相同的 Symbol</span>
+<span class="token function">alert</span><span class="token punctuation">(</span> id <span class="token operator">===</span> idAgain <span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// true</span>
+</code></pre></div><p>注册表内的 Symbol 被称为 <strong>全局 Symbol</strong>。如果我们想要一个应用程序范围内的 Symbol，可以在代码中随处访问 —— 这就是它们的用途。</p> &quot; extra-class&quot;&gt;<pre class="language-text"><code>在一些编程语言中，例如 Ruby，每个名字都有一个 Symbol。
+
+正如我们所看到的，在 JavaScript 中，全局 Symbol 也是这样的。
+</code></pre> <h3 id="symbol-keyfor"><a href="#symbol-keyfor" class="header-anchor">#</a> Symbol.keyFor</h3> <p>对于全局 Symbol，不仅有 <code>Symbol.for(key)</code> 按名字返回一个 Symbol，还有一个反向调用：<code>Symbol.keyFor(sym)</code>，它的作用完全反过来：通过全局 Symbol 返回一个名字。</p> <p>例如：</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// 通过 name 获取 Symbol</span>
+<span class="token keyword">let</span> sym <span class="token operator">=</span> Symbol<span class="token punctuation">.</span><span class="token function">for</span><span class="token punctuation">(</span><span class="token string">&quot;name&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">let</span> sym2 <span class="token operator">=</span> Symbol<span class="token punctuation">.</span><span class="token function">for</span><span class="token punctuation">(</span><span class="token string">&quot;id&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// 通过 Symbol 获取 name</span>
+<span class="token function">alert</span><span class="token punctuation">(</span> Symbol<span class="token punctuation">.</span><span class="token function">keyFor</span><span class="token punctuation">(</span>sym<span class="token punctuation">)</span> <span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// name</span>
+<span class="token function">alert</span><span class="token punctuation">(</span> Symbol<span class="token punctuation">.</span><span class="token function">keyFor</span><span class="token punctuation">(</span>sym2<span class="token punctuation">)</span> <span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// id</span>
+</code></pre></div><p><code>Symbol.keyFor</code> 内部使用全局 Symbol 注册表来查找 Symbol 的键。所以它不适用于非全局 Symbol。如果 Symbol 不是全局的，它将无法找到它并返回 <code>undefined</code>。</p> <p>也就是说，任何 Symbol 都具有 <code>description</code> 属性。</p> <p>例如：</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">let</span> globalSymbol <span class="token operator">=</span> Symbol<span class="token punctuation">.</span><span class="token function">for</span><span class="token punctuation">(</span><span class="token string">&quot;name&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">let</span> localSymbol <span class="token operator">=</span> <span class="token function">Symbol</span><span class="token punctuation">(</span><span class="token string">&quot;name&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token function">alert</span><span class="token punctuation">(</span> Symbol<span class="token punctuation">.</span><span class="token function">keyFor</span><span class="token punctuation">(</span>globalSymbol<span class="token punctuation">)</span> <span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// name，全局 Symbol</span>
+<span class="token function">alert</span><span class="token punctuation">(</span> Symbol<span class="token punctuation">.</span><span class="token function">keyFor</span><span class="token punctuation">(</span>localSymbol<span class="token punctuation">)</span> <span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// undefined，非全局</span>
+
+<span class="token function">alert</span><span class="token punctuation">(</span> localSymbol<span class="token punctuation">.</span>description <span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// name</span>
+</code></pre></div><h2 id="系统-symbol"><a href="#系统-symbol" class="header-anchor">#</a> 系统 Symbol</h2> <p>JavaScript 内部有很多“系统” Symbol，我们可以使用它们来微调对象的各个方面。</p> <p>它们都被列在了 <a href="https://tc39.github.io/ecma262/#sec-well-known-symbols" target="_blank" rel="noopener noreferrer">众所周知的 Symbol<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a> 表的规范中：</p> <ul><li><code>Symbol.hasInstance</code></li> <li><code>Symbol.isConcatSpreadable</code></li> <li><code>Symbol.iterator</code></li> <li><code>Symbol.toPrimitive</code></li> <li>……等等。</li></ul> <p>例如，<code>Symbol.toPrimitive</code> 允许我们将对象描述为原始值转换。我们很快就会看到它的使用。</p> <p>当我们研究相应的语言特征时，我们对其他的 Symbol 也会慢慢熟悉起来。</p> <h2 id="总结"><a href="#总结" class="header-anchor">#</a> 总结</h2> <p><code>Symbol</code> 是唯一标识符的基本类型</p> <p>Symbol 是使用带有可选描述（name）的 <code>Symbol()</code> 调用创建的。</p> <p>Symbol 总是不同的值，即使它们有相同的名字。如果我们希望同名的 Symbol 相等，那么我们应该使用全局注册表：<code>Symbol.for(key)</code> 返回（如果需要的话则创建）一个以 <code>key</code> 作为名字的全局 Symbol。使用 <code>Symbol.for</code> 多次调用 <code>key</code> 相同的 Symbol 时，返回的就是同一个 Symbol。</p> <p>Symbol 有两个主要的使用场景：</p> <ol><li><p>“隐藏” 对象属性。
+如果我们想要向“属于”另一个脚本或者库的对象添加一个属性，我们可以创建一个 Symbol 并使用它作为属性的键。Symbol 属性不会出现在 <code>for..in</code> 中，因此它不会意外地被与其他属性一起处理。并且，它不会被直接访问，因为另一个脚本没有我们的 symbol。因此，该属性将受到保护，防止被意外使用或重写。</p> <p>因此我们可以使用 Symbol 属性“秘密地”将一些东西隐藏到我们需要的对象中，但其他地方看不到它。</p></li> <li><p>JavaScript 使用了许多系统 Symbol，这些 Symbol 可以作为 <code>Symbol.*</code> 访问。我们可以使用它们来改变一些内置行为。例如，在本教程的后面部分，我们将使用 <code>Symbol.iterator</code> 来进行 <a href="/iterable">迭代</a> 操作，使用 <code>Symbol.toPrimitive</code> 来设置 <a href="/object-toprimitive">对象原始值的转换</a> 等等。</p></li></ol> <p>从技术上说，Symbol 不是 100% 隐藏的。有一个内置方法 <a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/getOwnPropertySymbols" target="_blank" rel="noopener noreferrer">Object.getOwnPropertySymbols(obj)<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a> 允许我们获取所有的 Symbol。还有一个名为 <a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Reflect/ownKeys" target="_blank" rel="noopener noreferrer">Reflect.ownKeys(obj)<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a> 的方法可以返回一个对象的 <strong>所有</strong> 键，包括 Symbol。所以它们并不是真正的隐藏。但是大多数库、内置方法和语法结构都没有使用这些方法。</p></div> <footer class="page-edit"><div class="edit-link"><a href="https://github.com/wangyan/vuepress-javascript/edit/develop/docs/1-js/04-object-basics/07-symbol/article.md" target="_blank" rel="noopener noreferrer">在 GitHub 上编辑</a> <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></div> <div class="last-updated"><span class="prefix">最后更新时间:</span> <span class="time">2021/7/11 上午12:59:00</span></div></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ⟵
+      <a href="/optional-chaining/" class="prev">
+        4.6. 可选链 &quot;?.&quot;
+      </a></span> <span class="next"><a href="/object-toprimitive/">
+        4.8. 对象 — 原始值转换
+      </a>
+      ⟶
+    </span></p></div> </main></div><div class="global-ui"><div style="visibility:hidden;display:none;"></div><!----><!----></div></div>
+    <script src="/assets/js/app.83f5da50.js" defer></script><script src="/assets/js/2.741d139e.js" defer></script><script src="/assets/js/48.e29e5227.js" defer></script><script src="/assets/js/20.2b87c008.js" defer></script>
+  </body>
+</html>
